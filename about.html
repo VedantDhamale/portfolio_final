@@ -7,10 +7,20 @@
     <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:200,400|Arapey" rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="css/demo1.css" />
     <title>My Portfolio</title>
-    <link rel="stylesheet" href="./css/style2.css" />
+    <link rel="stylesheet" href="./css/style3.css" />
+    <!-- <link rel="stylesheet" href="./css/style2.css" /> -->
     <link rel="stylesheet" href="./css/mediaqueries.css" />
     <script>document.documentElement.className = 'js';</script>
     <style>
+        /* Disable scrolling */
+        html,
+        body {
+            overflow: hidden;
+            height: 100%;
+            margin: 0;
+            padding: 0;
+        }
+
         .background {
             width: 100%;
             height: 100vh;
@@ -19,6 +29,13 @@
             background-repeat: no-repeat;
             background-position: center center;
         }
+
+        section,
+        .section-container {
+            height: 100vh;
+            overflow: hidden;
+        }
+
 
         @media screen and (max-width: 1200px) {
             #desktop-nav {
@@ -43,11 +60,6 @@
                 display: none;
             }
 
-            section,
-            .section-container {
-                height: fit-content;
-            }
-
             section {
                 margin: 0 5%;
             }
@@ -63,7 +75,7 @@
             }
 
             .section__pic-container {
-                width: px;
+                width: 200px;
                 height: 200px;
                 overflow: hidden;
                 border-radius: 50%;
@@ -97,64 +109,55 @@
                         <div class="hamburger__line-in hamburger__line-in--cross02"></div>
                     </div>
                 </div>
-                <section id="about">
-                    <!-- <p class="section__text__p1" style="color: rgb(22, 22, 22);"></p> -->
-                    <h1 class=" title">About Me</h1>
-                    <div class="section-container">
-                        <div class="section__pic-container">
-                            <img src="./assets/about-pic.jpg" alt="Profile picture" class="about-pic" />
-                        </div>
-                        <div class="about-details-container">
-                            <div class="about-containers">
-                                <div class="details-container">
-                                    <img src="./assets/education.png" alt="Education icon" class="icon" />
-                                    <h3 style="text-decoration: underline;margin-bottom:1%">Education</h3>
-                                    <p style="color: #555555;">Diploma in Computer Science<br />B.E. in Artificial
-                                        Intelligence & Data Science
-                                    </p>
-                                    <br>
-                                    <h3 style="text-decoration: underline;margin-bottom:1%">About</h3>
-                                    <p style=" color: #555555;">
-                                        Hello, I'm Vedant Dhamale, currently pursuing a Bachelor's degree in AI
-                                        &
-                                        Data
-                                        Science. I am proficient in programming languages such as Python, C++,
-                                        and
-                                        Java,
-                                        and
-                                        have hands-on experience with data analysis tools like SQL and Power BI.
-                                        My
-                                        focus
-                                        areas include AI, machine learning, data science and data analytics.
-                                        Through
-                                        various
-                                        internships
-                                        and projects, I have gained valuable experience and developed a strong
-                                        passion
-                                        for
-                                        exploring new technologies and methodologies in data science, data
-                                        analytics
-                                        and
-                                        AI.
-                                    </p>
-                                </div>
-                            </div>
-                            <div class="text-container">
 
-                            </div>
+                <section id="about" class="skills container">
+                    <h2>
+                        <small>About Me</small>
+                        Skills
+                    </h2>
+                    <div class="holder-blue">
+                        <div class="left-column">
+                            <h3>Frontend</h3>
+                            <ul>
+                                <li>HTML</li>
+                                <li>CSS</li>
+                                <li>JavaScript</li>
+                                <li>React</li>
+                                <li>Angular</li>
+                                <li>Vue</li>
+                            </ul>
+                            <h3>Backend</h3>
+                            <ul>
+                                <li>Node.js</li>
+                                <li>Express</li>
+                                <li>Python</li>
+                                <li>Java</li>
+                                <li>PHP</li>
+                                <li>Ruby</li>
+                            </ul>
+                        </div>
+                        <div class="right-column">
+                            <h3>A bit about me</h3>
+                            <p>
+                                Hi I'm Adrian Twarog, a designer and developer who creates educational content on
+                                YouTube to teach others about HTML, CSS and JavaScript. I'm interested in AI topics
+                                which is why I also add things like ChatGPT into my projects these days!
+                            </p>
+                            <p>
+                                I'm currently working on a project that uses Azure AI to create a chatbot that can
+                                help answer questions about web development. I'm also working on a project that uses
+                                React and Next.js to create a portfolio website design that looks good.
+                            </p>
                         </div>
                     </div>
-
                 </section>
 
-
-                <!-- Menu icon list -->
                 <div class="global-menu">
                     <div class="global-menu__wrap">
                         <a class="global-menu__item global-menu__item--demo-3" href="./index.html">Home</a>
                         <a class="global-menu__item global-menu__item--demo-3" href="about.html">About</a>
                         <a class="global-menu__item global-menu__item--demo-3" href="#">Experience</a>
-                        <a class="global-menu__item global-menu__item--demo-3" href="#">Projects</a>
+                        <a class="global-menu__item global-menu__item--demo-3" href="project.html">Projects</a>
                     </div>
                 </div>
                 <svg class="shape-overlays" viewBox="0 0 100 100" preserveAspectRatio="none">
@@ -169,6 +172,7 @@
         <script src="js/demo.js"></script>
         <script src="js/easings.js"></script>
         <script src="js/demo3.js"></script>
+        <!-- <script src="js/new.js"></script> -->
         <script src="./html-css-js-portfolio-tutorial-2-main/html-css-js-portfolio-tutorial-2-main/script2.js"></script>
     </div>
 </body>
