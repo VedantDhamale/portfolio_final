@@ -217,7 +217,7 @@
 
             .about-photo img {
                 max-width: 270px;
-                margin: 0.2rem auto;
+                margin: 0 auto;
             }
 
             .skills-highlight {
@@ -226,32 +226,31 @@
             }
         }
 
-        /* ===== MOBILE VIEW FIX (Tighter) ===== */
+        /* ===== MOBILE VIEW FIX (Ultra Compact) ===== */
         @media (max-width: 600px) {
             #about {
-                gap: 0.2rem;
-                /* minimal vertical space */
+                gap: 0.1rem;
+                /* almost zero spacing */
             }
 
             .about-photo img {
                 max-width: 230px;
-                margin-top: -0.8rem;
-                /* pull image upward */
-                margin-bottom: 0.1rem;
-                /* nearly touches text */
+                margin: 0.1rem auto !important;
+                /* minimal margin */
             }
 
             .about-text {
-                padding: 0 0.2rem;
+                padding: 0;
+                margin: 0;
             }
 
             .about-text h1 {
-                margin-top: 0.3rem;
-                margin-bottom: 0.6rem;
+                margin-top: 0.2rem;
+                margin-bottom: 0.5rem;
             }
 
             .about-text p {
-                margin-bottom: 1rem;
+                margin-bottom: 0.9rem;
             }
         }
 
