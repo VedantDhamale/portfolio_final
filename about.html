@@ -4,94 +4,277 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:200,400|Arapey" rel="stylesheet">
-    <link rel="stylesheet" type="text/css" href="css/demo1.css" />
-    <title>My Portfolio</title>
-    <link rel="stylesheet" href="./css/style3.css" />
-    <!-- <link rel="stylesheet" href="./css/style2.css" /> -->
+    <title>About | Vedant Dhamale</title>
+
+    <!-- Modern Minimal Fonts -->
+    <link href="https://api.fontshare.com/v2/css?f[]=clash-display@500,600,700&f[]=satoshi@300,400,500,700&display=swap"
+        rel="stylesheet">
+
+    <!-- Styles -->
+    <link rel="stylesheet" type="text/css" href="css/demo.css" />
+    <link rel="stylesheet" href="./css/style2.css" />
     <link rel="stylesheet" href="./css/mediaqueries.css" />
     <script>document.documentElement.className = 'js';</script>
+
     <style>
-        /* Disable scrolling */
+        /* ===== GENERAL ===== */
         html,
         body {
-            overflow: hidden;
-            height: 100%;
             margin: 0;
             padding: 0;
+            font-family: 'Satoshi', sans-serif;
+            background: #f2f3f5;
+            color: #111;
+            -webkit-font-smoothing: antialiased;
+            height: 100%;
+            width: 100%;
+            overflow-x: hidden;
         }
 
+        @media (min-width: 1024px) {
+
+            html,
+            body {
+                overflow: hidden;
+            }
+        }
+
+        /* ===== BACKGROUND (PREMIUM GREY GRADIENT SIMILAR TO INDEX) ===== */
         .background {
             width: 100%;
-            height: 100vh;
-            background-image: url('./assets/bg-image.png');
-            background-size: cover;
-            background-repeat: no-repeat;
-            background-position: center center;
+            min-height: 100vh;
+            background: linear-gradient(135deg, #f2f3f5 0%, #e8ebf0 50%, #f9fafc 100%);
+            background-size: 200% 200%;
+            animation: smoothShift 20s ease-in-out infinite alternate;
         }
 
-        section,
-        .section-container {
-            height: 100vh;
-            overflow: hidden;
+        @keyframes smoothShift {
+            from {
+                background-position: 0% 50%;
+            }
+
+            to {
+                background-position: 100% 50%;
+            }
         }
 
+        main {
+            position: relative;
+            z-index: 1;
+            min-height: 100vh;
+            width: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 2rem;
+        }
 
-        @media screen and (max-width: 1200px) {
-            #desktop-nav {
-                display: none;
+        /* ===== ABOUT SECTION ===== */
+        #about {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 3rem;
+            width: 100%;
+            max-width: 1200px;
+            flex-wrap: wrap;
+        }
+
+        /* ===== ENTRANCE ANIMATIONS ===== */
+        .about-text {
+            flex: 1 1 450px;
+            min-width: 300px;
+            color: #111;
+            opacity: 0;
+            transform: translateX(-60px);
+            animation: slideInLeft 1.5s ease forwards;
+            animation-delay: 0.3s;
+        }
+
+        .about-photo {
+            flex: 1 1 350px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            transform: translateX(60px);
+            animation: slideInRight 1.5s ease forwards;
+            animation-delay: 0.6s;
+        }
+
+        @keyframes slideInLeft {
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        @keyframes slideInRight {
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        /* ===== IMAGE ===== */
+        .about-photo img {
+            width: 100%;
+            max-width: 360px;
+            border-radius: 18px;
+            transition: transform 0.8s ease, box-shadow 0.8s ease;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.25);
+        }
+
+        .about-photo img:hover {
+            transform: scale(1.02);
+            box-shadow: 0 25px 70px rgba(0, 123, 255, 0.25);
+        }
+
+        /* ===== DYNAMIC HEADING ===== */
+        .about-text h1 {
+            font-family: 'Clash Display', sans-serif;
+            font-weight: 600;
+            font-size: clamp(2.3rem, 4vw, 3.8rem);
+            letter-spacing: -0.5px;
+            margin-bottom: 1.2rem;
+            color: #000;
+            transition: all 0.25s ease;
+            display: inline-block;
+            position: relative;
+        }
+
+        .about-text h1:hover {
+            font-weight: 700;
+            letter-spacing: 0.6px;
+            transform: translateY(-2px);
+        }
+
+        /* ===== TEXT ===== */
+        .about-text p {
+            font-size: clamp(1rem, 1.8vw, 1.1rem);
+            color: #333;
+            line-height: 1.8rem;
+            margin-bottom: 1.8rem;
+            font-weight: 400;
+        }
+
+        /* ===== SKILLS (Neutral Premium Look, No Hover Changes) ===== */
+        .skills-highlight {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.6rem 0.8rem;
+            max-width: 520px;
+        }
+
+        .skill-tag {
+            background: #f9fafc;
+            color: #000000;
+            border: 1px solid rgba(0, 0, 0, 0.08);
+            border-radius: 12px;
+            padding: 0.45rem 0.9rem;
+            font-size: clamp(0.75rem, 1.5vw, 0.9rem);
+            letter-spacing: 0.3px;
+            text-transform: none;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            font-weight: 500;
+            box-shadow: 0 2px 6px rgba(0, 0, 0, 0.04);
+        }
+
+        .skill-tag:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.08);
+        }
+
+        /* ===== LOADER ===== */
+        .loader {
+            position: fixed;
+            inset: 0;
+            background: #fff;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 9999;
+            animation: loaderFadeOut 1.5s ease forwards;
+            animation-delay: 1.5s;
+        }
+
+        .loader h2 {
+            font-family: 'Clash Display', sans-serif;
+            font-size: clamp(1.5rem, 3vw, 2rem);
+            color: #007bff;
+            opacity: 0;
+            animation: textFade 1.2s ease forwards;
+        }
+
+        @keyframes textFade {
+            from {
+                opacity: 0;
+                letter-spacing: 2px;
             }
 
-            #hamburger-nav {
-                display: flex;
+            to {
+                opacity: 1;
+                letter-spacing: 6px;
+            }
+        }
+
+        @keyframes loaderFadeOut {
+            to {
+                opacity: 0;
+                visibility: hidden;
+            }
+        }
+
+        /* ===== RESPONSIVE ===== */
+        @media (max-width: 1024px) {
+            main {
+                align-items: flex-start;
+                justify-content: center;
+                padding: 3rem 1.5rem;
             }
 
-            #experience,
-            .experience-details-container {
-                margin-top: 2rem;
+            #about {
+                flex-direction: column-reverse;
+                text-align: center;
+                gap: 2rem;
             }
 
-            #profile,
-            .section-container {
-                display: block;
+            .about-photo img {
+                max-width: 320px;
             }
 
-            .arrow {
-                display: none;
+            .skills-highlight {
+                justify-content: center;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .about-photo img {
+                max-width: 220px;
             }
 
-            section {
-                margin: 0 5%;
+            .about-text h1 {
+                font-size: 2rem;
             }
 
-            .section__pic-container {
-                width: 200px;
-                height: 200px;
-                margin: auto 1;
-            }
-
-            .about-containers {
-                margin-top: 0;
-            }
-
-            .section__pic-container {
-                width: 200px;
-                height: 200px;
-                overflow: hidden;
-                border-radius: 50%;
+            .about-text p {
+                font-size: 0.95rem;
             }
         }
     </style>
-
 </head>
 
 <body class="demo-3">
+    <!-- ===== LOADER ===== -->
+    <!-- <div class="loader">
+        <h2>Loading...</h2>
+    </div> -->
 
     <div class="background">
-
         <main class="main main--demo-3">
-
             <div class="content content--demo-3">
+
+                <!-- ===== HAMBURGER MENU ===== -->
                 <div class="hamburger hamburger--demo-3 js-hover">
                     <div class="hamburger__line hamburger__line--01">
                         <div class="hamburger__line-in hamburger__line-in--01"></div>
@@ -110,70 +293,57 @@
                     </div>
                 </div>
 
-                <section id="about" class="skills container">
-                    <h2>
-                        <small>About Me</small>
-                        Skills
-                    </h2>
-                    <div class="holder-blue">
-                        <div class="left-column">
-                            <h3>Frontend</h3>
-                            <ul>
-                                <li>HTML</li>
-                                <li>CSS</li>
-                                <li>JavaScript</li>
-                                <li>React</li>
-                                <li>Angular</li>
-                                <li>Vue</li>
-                            </ul>
-                            <h3>Backend</h3>
-                            <ul>
-                                <li>Node.js</li>
-                                <li>Express</li>
-                                <li>Python</li>
-                                <li>Java</li>
-                                <li>PHP</li>
-                                <li>Ruby</li>
-                            </ul>
+                <!-- ===== ABOUT SECTION ===== -->
+                <section id="about">
+                    <div class="about-text">
+                        <h1>About Me</h1>
+                        <p>I'm <strong>Vedant Dhamale</strong>, an AI & Data Science Engineer passionate about designing
+                            intelligent systems that combine data, machine learning, and modern cloud technologies. I
+                            specialize in building scalable pipelines and analytical solutions that bridge raw data with
+                            actionable
+                            insights.</p>
+
+                        <div class="skills-highlight">
+                            <span class="skill-tag">Machine Learning</span>
+                            <span class="skill-tag">Deep Learning</span>
+                            <span class="skill-tag">Data Science</span>
+                            <span class="skill-tag">PySpark</span>
+                            <span class="skill-tag">Azure</span>
+                            <span class="skill-tag">SQL</span>
+                            <span class="skill-tag">Python</span>
+                            <span class="skill-tag">Power BI</span>
+                            <span class="skill-tag">Web Designing</span>
+                            <span class="skill-tag">TensorFlow</span>
                         </div>
-                        <div class="right-column">
-                            <h3>A bit about me</h3>
-                            <p>
-                                Hi I'm Adrian Twarog, a designer and developer who creates educational content on
-                                YouTube to teach others about HTML, CSS and JavaScript. I'm interested in AI topics
-                                which is why I also add things like ChatGPT into my projects these days!
-                            </p>
-                            <p>
-                                I'm currently working on a project that uses Azure AI to create a chatbot that can
-                                help answer questions about web development. I'm also working on a project that uses
-                                React and Next.js to create a portfolio website design that looks good.
-                            </p>
-                        </div>
+                    </div>
+
+                    <div class="about-photo">
+                        <img src="./assets/image.png" alt="Vedant Dhamale">
                     </div>
                 </section>
 
+                <!-- ===== OVERLAY MENU ===== -->
                 <div class="global-menu">
                     <div class="global-menu__wrap">
                         <a class="global-menu__item global-menu__item--demo-3" href="./index.html">Home</a>
-                        <a class="global-menu__item global-menu__item--demo-3" href="about.html">About</a>
+                        <a class="global-menu__item global-menu__item--demo-3" href="./about.html">About</a>
                         <a class="global-menu__item global-menu__item--demo-3" href="#">Experience</a>
                         <a class="global-menu__item global-menu__item--demo-3" href="./project.html">Projects</a>
                     </div>
                 </div>
+
                 <svg class="shape-overlays" viewBox="0 0 100 100" preserveAspectRatio="none">
                     <path class="shape-overlays__path"></path>
                     <path class="shape-overlays__path"></path>
                     <path class="shape-overlays__path"></path>
                 </svg>
-
             </div>
-
         </main>
+
+        <!-- JS FILES -->
         <script src="js/demo.js"></script>
         <script src="js/easings.js"></script>
         <script src="js/demo3.js"></script>
-        <!-- <script src="js/new.js"></script> -->
-        <script src="./html-css-js-portfolio-tutorial-2-main/html-css-js-portfolio-tutorial-2-main/script2.js"></script>
     </div>
 </body>
 
