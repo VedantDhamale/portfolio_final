@@ -4,14 +4,19 @@
 <head>
 	<meta charset="UTF-8" />
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:200,400|Arapey" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
 	<link rel="stylesheet" type="text/css" href="css/demo.css" />
-
 	<title>My Portfolio</title>
 	<link rel="stylesheet" href="./css/style2.css" />
 	<link rel="stylesheet" href="./css/mediaqueries.css" />
 	<script>document.documentElement.className = 'js';</script>
+
 	<style>
+		body {
+			font-family: 'Playfair Display', serif;
+		}
+
+		/* ===== BACKGROUND ===== */
 		.background {
 			width: 100%;
 			height: 100vh;
@@ -20,16 +25,128 @@
 			background-repeat: no-repeat;
 			background-position: center center;
 		}
+
+		/* ===== MINIMAL LOADER ===== */
+		.loader {
+			position: fixed;
+			inset: 0;
+			background: #f5f6fa;
+			display: flex;
+			flex-direction: column;
+			align-items: center;
+			justify-content: center;
+			z-index: 9999;
+			font-family: 'Inter', sans-serif;
+			opacity: 0;
+			animation: fadeInLoader 0.6s ease forwards;
+		}
+
+		.loader-logo {
+			font-weight: 600;
+			font-size: 3rem;
+			color: #1e2a55;
+			letter-spacing: 4px;
+			transform: scale(0.5);
+			opacity: 0;
+			animation: popUp 1.2s ease forwards 0.3s;
+		}
+
+		.loader h2 {
+			margin-top: 0.8rem;
+			font-weight: 400;
+			font-size: 1rem;
+			color: #555;
+			letter-spacing: 3px;
+			opacity: 0;
+			animation: fadeText 1.4s ease forwards 0.6s;
+		}
+
+		/* ===== ANIMATIONS ===== */
+		@keyframes popUp {
+			0% {
+				opacity: 0;
+				transform: scale(0.5);
+			}
+
+			80% {
+				opacity: 1;
+				transform: scale(1.05);
+			}
+
+			100% {
+				opacity: 1;
+				transform: scale(1);
+			}
+		}
+
+		@keyframes fadeText {
+			from {
+				opacity: 0;
+			}
+
+			to {
+				opacity: 1;
+			}
+		}
+
+		@keyframes fadeInLoader {
+			from {
+				opacity: 0;
+			}
+
+			to {
+				opacity: 1;
+			}
+		}
+
+		@keyframes fadeOutLoader {
+			from {
+				opacity: 1;
+			}
+
+			to {
+				opacity: 0;
+				visibility: hidden;
+			}
+		}
+
+		/* ===== INTRO TEXT ===== */
+		.intro-desc {
+			font-family: 'Poppins', sans-serif;
+			font-size: 1rem;
+			color: #333;
+			line-height: 1.8;
+			max-width: 600px;
+			margin: 0 auto 2rem;
+			padding: 0 1.5rem;
+			text-align: center;
+		}
+
+		/* ===== CONNECT TEXT ===== */
+		.connect-text {
+			font-family: 'Poppins', sans-serif;
+			font-size: 1rem;
+			color: #1e2a55;
+			margin-bottom: 0.8rem;
+			text-align: center;
+			letter-spacing: 0.4px;
+			font-weight: 500;
+		}
 	</style>
 </head>
 
 <body class="demo-3">
+	<!-- ===== LOADER ===== -->
+	<div class="loader">
+		<div class="loader-logo">VD</div>
+		<h2>Loading Portfolio...</h2>
+	</div>
 
 	<div class="background">
-
 		<main class="main main--demo-3">
-
 			<div class="content content--demo-3">
+
+				<!-- ===== HAMBURGER ===== -->
 				<div class="hamburger hamburger--demo-3 js-hover">
 					<div class="hamburger__line hamburger__line--01">
 						<div class="hamburger__line-in hamburger__line-in--01"></div>
@@ -47,60 +164,74 @@
 						<div class="hamburger__line-in hamburger__line-in--cross02"></div>
 					</div>
 				</div>
-				<br><br>
-				<br>
-				<!-- <br> -->
 
+				<br><br><br>
+
+				<!-- ===== PROFILE SECTION ===== -->
 				<section id="profile">
 					<div class="section__pic-container">
 						<img src="./Photo.png" alt="Vedant Dhamale profile picture" />
 					</div>
-					<div class="section__text">
+					<div class="section__text" style="margin-top: 4rem;">
 						<p class="section__text__p1">Hello, I'm</p>
 						<h1 class="title">Vedant Dhamale</h1>
-						<p class="section__text__p2">AI & Data Science Engineer</p>
-						<div class="btn-container">
-							<a href="https://drive.google.com/file/d/1W46Dvns8EK3dJjvnIYWYl7dH0qBv-AIs/view?usp=sharing"
-								target="_blank">
-								<button class="btn btn-color-2">
-									Download CV
-								</button>
-							</a>
-						</div>
+						<p class="section__text__p2">Artifical Intelligence & Data Science Engineer</p>
+
+						<p class="intro-desc">
+							I’m Vedant, an aspiring Artificial Intelligence and Data Science Engineer, focused on
+							creating intelligent systems
+							and impactful machine learning solutions. My passion lies in transforming complex data into
+							meaningful insights
+							and building models that make a difference.
+						</p>
+
+						<p class="connect-text">Connect with me:</p>
 
 						<div id="socials-container">
 							<img src="./assets/linkedin.png" alt="My LinkedIn profile" class="icon"
-								onclick="location.href='https://linkedin.com/'" />
-							<img src="./assets/github.png" alt="My Github profile" class="icon"
-								onclick="location.href='https://github.com/'" />
+								onclick="window.open('https://www.linkedin.com/in/vedant-dhamale-0ab58b286', '_blank')" />
+							<img src="./assets/github.png" alt="My GitHub profile" class="icon"
+								onclick="window.open('https://github.com/VedantDhamale', '_blank')" />
 						</div>
 					</div>
 				</section>
 
-
-				<!-- Menu icon list -->
+				<!-- ===== MENU ===== -->
 				<div class="global-menu">
 					<div class="global-menu__wrap">
 						<a class="global-menu__item global-menu__item--demo-3" href="./index.html">Home</a>
-						<a class="global-menu__item global-menu__item--demo-3" href="about.html">About</a>
+						<a class="global-menu__item global-menu__item--demo-3" href="about2.html">About</a>
 						<a class="global-menu__item global-menu__item--demo-3" href="#">Experience</a>
 						<a class="global-menu__item global-menu__item--demo-3" href="./project.html">Projects</a>
 					</div>
 				</div>
+
 				<svg class="shape-overlays" viewBox="0 0 100 100" preserveAspectRatio="none">
 					<path class="shape-overlays__path"></path>
 					<path class="shape-overlays__path"></path>
 					<path class="shape-overlays__path"></path>
 				</svg>
-
 			</div>
-
 		</main>
-		<script src="js/demo.js"></script>
-		<script src="js/easings.js"></script>
-		<script src="js/demo3.js"></script>
-		<script src="./js/script2.js"></script>
 	</div>
+
+	<!-- ===== JS FILES ===== -->
+	<script src="js/demo.js"></script>
+	<script src="js/easings.js"></script>
+	<script src="js/demo3.js"></script>
+	<script src="./js/script2.js"></script>
+
+	<script>
+		window.addEventListener("load", () => {
+			const loader = document.querySelector(".loader");
+			setTimeout(() => {
+				loader.style.animation = "fadeOutLoader 0.8s ease forwards";
+			}, 1700);
+			setTimeout(() => {
+				loader.style.display = "none";
+			}, 2500);
+		});
+	</script>
 </body>
 
 </html>

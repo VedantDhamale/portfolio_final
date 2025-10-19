@@ -1,0 +1,2028 @@
+<!DOCTYPE html>
+<html lang="en" class="no-js">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>About | Vedant Dhamale</title>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=DM+Sans:wght@400;500;700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="css/demo1.css" />
+    <link rel="stylesheet" href="./css/style3.css" />
+    <link rel="stylesheet" href="./css/mediaqueries.css" />
+    <script>document.documentElement.className = 'js';</script>
+
+    <style>
+        :root {
+            --font-main: 'DM Sans', 'Inter', sans-serif;
+            --blue: #00bfff;
+            --light: #f5f6f8;
+            --dark: #0b0b0b;
+            --gradient1: linear-gradient(120deg, #e0f7ff 0%, #ffffff 100%);
+            --gradient2: linear-gradient(120deg, #0b0b0b 0%, #111 100%);
+        }
+
+        html,
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: var(--font-main);
+            overflow-x: hidden;
+            scroll-behavior: smooth;
+            color: #111;
+            background: var(--light);
+        }
+
+        .background {
+            position: fixed;
+            width: 100%;
+            height: 100vh;
+            background: var(--gradient1);
+            z-index: -2;
+            transition: all 1s ease;
+        }
+
+        main {
+            position: relative;
+            z-index: 1;
+        }
+
+        section {
+            min-height: 100vh;
+            padding: 6rem 10%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+            position: relative;
+            transition: background 1s ease;
+        }
+
+        /* ====== ABOUT SECTION ====== */
+        #about {
+            flex-direction: row;
+            justify-content: space-between;
+            background: transparent;
+        }
+
+        .about-text {
+            flex: 1;
+            color: #000;
+        }
+
+        .about-text h1 {
+            font-size: 5rem;
+            font-weight: 700;
+            letter-spacing: -2px;
+            margin-bottom: 1.5rem;
+        }
+
+        .about-text p {
+            font-size: 1.1rem;
+            line-height: 1.8rem;
+            color: #333;
+            max-width: 520px;
+        }
+
+        .scroll-hint {
+            color: #777;
+            font-size: 0.9rem;
+            letter-spacing: 1px;
+            margin-top: 2rem;
+        }
+
+        .about-photo {
+            flex: 1;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .about-photo img {
+            width: 75%;
+            border-radius: 20px;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
+            transform: translateY(30px);
+            opacity: 0;
+            transition: all 0.8s ease-out;
+        }
+
+        .about-photo img.in-view {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .about-photo img:hover {
+            transform: scale(1.03);
+            box-shadow: 0 25px 60px rgba(0, 191, 255, 0.4);
+        }
+
+        /* ====== TIMELINE ====== */
+        #timeline {
+            background: #fff;
+            color: #000;
+        }
+
+        #timeline h2 {
+            font-size: 2.5rem;
+            color: var(--blue);
+            margin-bottom: 3rem;
+            text-align: center;
+        }
+
+        .timeline {
+            position: relative;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .timeline::before {
+            content: '';
+            position: absolute;
+            left: 50%;
+            width: 3px;
+            background: rgba(0, 191, 255, 0.4);
+            top: 0;
+            bottom: 0;
+            border-radius: 2px;
+        }
+
+        .timeline-step {
+            position: relative;
+            width: 50%;
+            padding: 1rem 2rem;
+            opacity: 0;
+            transform: translateY(50px);
+        }
+
+        .timeline-step.left {
+            left: 0;
+            text-align: right;
+        }
+
+        .timeline-step.right {
+            left: 50%;
+            text-align: left;
+        }
+
+        .timeline-content {
+            background: #fdfdfd;
+            border-radius: 12px;
+            padding: 1.5rem;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+        }
+
+        .timeline-step::after {
+            content: '';
+            position: absolute;
+            top: 25px;
+            width: 20px;
+            height: 20px;
+            background: var(--blue);
+            border-radius: 50%;
+            box-shadow: 0 0 10px rgba(0, 191, 255, 0.5);
+        }
+
+        .timeline-step.left::after {
+            right: -10px;
+        }
+
+        .timeline-step.right::after {
+            left: -10px;
+        }
+
+        .timeline-content h3 {
+            color: var(--blue);
+            margin-bottom: 0.3rem;
+        }
+
+        .timeline-content p,
+        .timeline-content li {
+            color: #444;
+            font-size: 0.95rem;
+            line-height: 1.6;
+        }
+
+        .timeline-content ul {
+            margin: 0.5rem 0 0 1.2rem;
+            padding: 0;
+        }
+
+        /* ====== SKILLS ====== */
+        #skills {
+            background: var(--gradient2);
+            color: #fff;
+            text-align: center;
+        }
+
+        #skills h2 {
+            font-size: 2.3rem;
+            color: var(--blue);
+            margin-bottom: 2rem;
+        }
+
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 1rem;
+            width: 100%;
+            max-width: 900px;
+        }
+
+        .skill-item {
+            background: rgba(255, 255, 255, 0.08);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            padding: 1rem;
+            border-radius: 10px;
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.4s ease;
+        }
+
+        .skill-item:hover {
+            background: rgba(0, 191, 255, 0.1);
+            transform: translateY(-4px);
+            box-shadow: 0 0 15px rgba(0, 191, 255, 0.2);
+        }
+
+        /* ====== ACHIEVEMENTS ====== */
+        #achievements {
+            background: #0a0a0a;
+            color: #fff;
+            text-align: center;
+        }
+
+        #achievements h2 {
+            color: var(--blue);
+            font-size: 2.3rem;
+            margin-bottom: 2rem;
+        }
+
+        .achievement {
+            max-width: 700px;
+            margin: 0 auto 1rem;
+            font-size: 1rem;
+            line-height: 1.6;
+            opacity: 0;
+            transform: translateY(30px);
+        }
+
+        /* ====== RESPONSIVE ====== */
+        @media (max-width: 900px) {
+            #about {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .about-photo img {
+                width: 90%;
+                margin-top: 2rem;
+            }
+
+            .timeline-step {
+                width: 100%;
+                left: 0 !important;
+                text-align: center;
+            }
+
+            .timeline::before {
+                left: 10px;
+            }
+        }
+    </style>
+</head>
+
+<body class="demo-3">
+    <div class="background" id="bg"></div>
+
+    <main class="main main--demo-3">
+        <div class="content content--demo-3">
+
+            <!-- ===== HAMBURGER MENU ===== -->
+            <div class="hamburger hamburger--demo-3 js-hover">
+                <div class="hamburger__line hamburger__line--01">
+                    <div class="hamburger__line-in hamburger__line-in--01"></div>
+                </div>
+                <div class="hamburger__line hamburger__line--02">
+                    <div class="hamburger__line-in hamburger__line-in--02"></div>
+                </div>
+                <div class="hamburger__line hamburger__line--03">
+                    <div class="hamburger__line-in hamburger__line-in--03"></div>
+                </div>
+                <div class="hamburger__line hamburger__line--cross01">
+                    <div class="hamburger__line-in hamburger__line-in--cross01"></div>
+                </div>
+                <div class="hamburger__line hamburger__line--cross02">
+                    <div class="hamburger__line-in hamburger__line-in--cross02"></div>
+                </div>
+            </div>
+
+            <!-- ===== OVERLAY MENU ===== -->
+            <div class="global-menu">
+                <div class="global-menu__wrap">
+                    <a class="global-menu__item global-menu__item--demo-3" href="./index.html">Home</a>
+                    <a class="global-menu__item global-menu__item--demo-3" href="./about2.html">About</a>
+                    <a class="global-menu__item global-menu__item--demo-3" href="#">Experience</a>
+                    <a class="global-menu__item global-menu__item--demo-3" href="./project.html">Projects</a>
+                </div>
+            </div>
+            <svg class="shape-overlays" viewBox="0 0 100 100" preserveAspectRatio="none">
+                <path class="shape-overlays__path"></path>
+                <path class="shape-overlays__path"></path>
+                <path class="shape-overlays__path"></path>
+            </svg>
+
+            <!-- ===== ABOUT SECTION ===== -->
+            <section id="about">
+                <div class="about-text fade-in-up">
+                    <h1>ABOUT</h1>
+                    <p>I’m <strong>Vedant Dhamale</strong>, an AI & Data Science Engineer passionate about crafting
+                        intelligent systems that fuse <strong>data-driven insights</strong> with modern <strong>cloud
+                            solutions</strong>. My expertise includes <strong>Machine Learning</strong>, <strong>Deep
+                            Learning</strong>, and <strong>Data Engineering</strong> using <strong>TensorFlow</strong>,
+                        <strong>PySpark</strong>, and <strong>Azure</strong>.
+                    </p>
+                    <p>I’ve led impactful projects at <strong>EY Excelerate</strong> and <strong>IoTIOT.in</strong>,
+                        focusing on real-world applications of AI and analytics.</p>
+                    <p class="scroll-hint">Scroll to Explore ↓</p>
+                </div>
+                <div class="about-photo"><img src="./assets/Vedant_dhamale.jpg" alt="Vedant Dhamale"></div>
+            </section>
+
+            <!-- ===== TIMELINE ===== -->
+            <section id="timeline">
+                <h2>Professional Experience</h2>
+                <div class="timeline">
+                    <div class="timeline-step left">
+                        <div class="timeline-content">
+                            <h3>Cognizant Technology Solutions</h3>
+                            <p><strong>Programmer Analyst (Data Engineer)</strong> | Jul 2025 – Present</p>
+                            <p>(Full-time role)</p>
+                        </div>
+                    </div>
+                    <div class="timeline-step right">
+                        <div class="timeline-content">
+                            <h3>Cognizant - GenC Next</h3>
+                            <p><strong>Data Engineering Intern</strong> | Mar 2025 – Jun 2025 | Chennai, Tamil Nadu</p>
+                            <ul>
+                                <li>Designed and deployed automated PySpark and Azure Data Factory pipelines.</li>
+                                <li>Implemented MD5 validation, archival, purging, and metadata tracking.</li>
+                                <li>Performed EDA, profiling, and API-based enrichment.</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="timeline-step left">
+                        <div class="timeline-content">
+                            <h3>EY Global Delivery Services (AICTE Collaboration)</h3>
+                            <p><strong>Data Analytics Intern</strong> | Feb 2024 – Apr 2024 | Remote</p>
+                            <ul>
+                                <li>Completed Next Gen Employability Program in Advanced Data Analytics.</li>
+                                <li>Built Power BI dashboard analyzing global unicorn businesses.</li>
+                                <li>Recognized among Top 37 nationwide for analytical excellence.</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="timeline-step right">
+                        <div class="timeline-content">
+                            <h3>Excelerate</h3>
+                            <p><strong>Data Analyst Associate Intern</strong> | Jan 2024 – Feb 2024 | Remote</p>
+                            <ul>
+                                <li>Created interactive dashboards visualizing sign-up trends and demographics.</li>
+                                <li>Performed preprocessing and feature engineering with Pandas and NumPy.</li>
+                                <li>Delivered insights using Looker Studio.</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="timeline-step left">
+                        <div class="timeline-content">
+                            <h3>IoTIOT.in</h3>
+                            <p><strong>Deep Learning Intern</strong> | Aug 2021 – Apr 2022 | Pune, Maharashtra</p>
+                            <ul>
+                                <li>Developed a YOLOv3-based Weapon Detection System with 96.2% accuracy.</li>
+                                <li>Optimized CNN architecture to improve model inference and performance.</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <h2 style="margin-top:6rem;">Education</h2>
+                <div class="timeline">
+                    <div class="timeline-step left">
+                        <div class="timeline-content">
+                            <h3>Vidya Pratishthan’s Kamalnayan Bajaj Institute of Engineering and Technology, Baramati
+                            </h3>
+                            <p><strong>Bachelor of Engineering in Artificial Intelligence and Data Science</strong></p>
+                            <p>📍 Baramati, Maharashtra | Nov 2022 – May 2025</p>
+                            <p><strong>CGPA:</strong> 8.45 / 10</p>
+                        </div>
+                    </div>
+                    <div class="timeline-step right">
+                        <div class="timeline-content">
+                            <h3>Government Polytechnic, Pune</h3>
+                            <p><strong>Diploma in Computer Engineering</strong></p>
+                            <p>📍 Pune, Maharashtra | Aug 2019 – Jul 2022</p>
+                            <p><strong>Grade:</strong> 88.20%</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- ===== SKILLS ===== -->
+            <section id="skills">
+                <h2>Technical Skills</h2>
+                <div class="skills-grid">
+                    <div class="skill-item">Python</div>
+                    <div class="skill-item">TensorFlow</div>
+                    <div class="skill-item">PySpark</div>
+                    <div class="skill-item">Azure Data Factory</div>
+                    <div class="skill-item">Databricks</div>
+                    <div class="skill-item">Power BI</div>
+                    <div class="skill-item">Keras</div>
+                    <div class="skill-item">SQL</div>
+                    <div class="skill-item">Machine Learning</div>
+                    <div class="skill-item">Deep Learning</div>
+                    <div class="skill-item">Git / GitHub</div>
+                    <div class="skill-item">Flask</div>
+                    <div class="skill-item">Pandas</div>
+                    <div class="skill-item">NumPy</div>
+                    <div class="skill-item">ETL</div>
+                    <div class="skill-item">Looker Studio</div>
+                </div>
+            </section>
+
+            <!-- ===== ACHIEVEMENTS ===== -->
+            <section id="achievements">
+                <h2>Achievements</h2>
+                <div class="achievement">• Ranked Top 37 in EY Advanced Data Analytics Internship.</div>
+                <div class="achievement">• Awarded “Star Performer” and $1,000 Scholarship by Saint Louis University.
+                </div>
+                <div class="achievement">• Published multiple ML, PySpark & Azure projects on GitHub.</div>
+            </section>
+
+        </div>
+    </main>
+
+    <!-- ===== JS FILES ===== -->
+    <script src="js/demo.js"></script>
+    <script src="js/easings.js"></script>
+    <script src="js/demo3.js"></script>
+
+    <!-- ===== GSAP ===== -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+    <script>
+        gsap.registerPlugin(ScrollTrigger);
+        const bg = document.getElementById("bg");
+        window.addEventListener("scroll", () => {
+            const y = window.scrollY;
+            bg.style.transform = `scale(${1 + y / 2500}) translateY(${y / 6}px)`;
+            if (y < window.innerHeight * 1) bg.style.background = "var(--gradient1)";
+            else if (y < window.innerHeight * 2) bg.style.background = "linear-gradient(120deg, #dff6ff 0%, #f8f8f8 100%)";
+            else if (y < window.innerHeight * 3) bg.style.background = "linear-gradient(120deg, #101820 0%, #0b0b0b 100%)";
+            else bg.style.background = "linear-gradient(120deg, #000 0%, #0a0a0a 100%)";
+        });
+
+        const observer = new IntersectionObserver(entries => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) entry.target.classList.add('in-view');
+            });
+        }, { threshold: 0.2 });
+
+        document.querySelectorAll('.fade-in-up, .about-photo img').forEach(el => observer.observe(el));
+
+        gsap.utils.toArray(".timeline-step, .skill-item, .achievement").forEach(el => {
+            gsap.to(el, {
+                scrollTrigger: { trigger: el, start: "top 85%" },
+                opacity: 1, y: 0, duration: 1.2, ease: "power2.out"
+            });
+        });
+    </script>
+</body>
+
+</html>
+
+
+
+
+
+<!DOCTYPE html>
+<html lang="en" class="no-js">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>About | Vedant Dhamale</title>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=DM+Sans:wght@400;500;700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="css/demo1.css" />
+    <script>document.documentElement.className = 'js';</script>
+
+    <style>
+        :root {
+            --font-main: 'DM Sans', 'Inter', sans-serif;
+            --blue: #00bfff;
+            --light: #f5f6f8;
+            --dark: #0b0b0b;
+            --gradient1: linear-gradient(120deg, #e0f7ff 0%, #ffffff 100%);
+            --gradient2: linear-gradient(120deg, #0b0b0b 0%, #111 100%);
+        }
+
+        html,
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: var(--font-main);
+            overflow-x: hidden;
+            scroll-behavior: smooth;
+            color: #111;
+            background: var(--light);
+        }
+
+        .background {
+            position: fixed;
+            width: 100%;
+            height: 100vh;
+            background: var(--gradient1);
+            z-index: -2;
+            transition: all 1s ease;
+        }
+
+        main {
+            position: relative;
+            z-index: 1;
+        }
+
+        section {
+            min-height: 100vh;
+            padding: 6rem 10%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+            position: relative;
+            transition: background 1s ease;
+        }
+
+        /* ====== ABOUT SECTION ====== */
+        #about {
+            flex-direction: row;
+            justify-content: space-between;
+            background: transparent;
+        }
+
+        .about-text {
+            flex: 1;
+            color: #000;
+        }
+
+        .about-text h1 {
+            font-size: 5rem;
+            font-weight: 700;
+            letter-spacing: -2px;
+            margin-bottom: 1.5rem;
+        }
+
+        .about-text p {
+            font-size: 1.1rem;
+            line-height: 1.8rem;
+            color: #333;
+            max-width: 520px;
+        }
+
+        .scroll-hint {
+            color: #777;
+            font-size: 0.9rem;
+            letter-spacing: 1px;
+            margin-top: 2rem;
+        }
+
+        .about-photo {
+            flex: 1;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .about-photo img {
+            width: 75%;
+            border-radius: 20px;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
+            transform: translateY(30px);
+            opacity: 0;
+            transition: all 0.8s ease-out;
+        }
+
+        .about-photo img.in-view {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .about-photo img:hover {
+            transform: scale(1.03);
+            box-shadow: 0 25px 60px rgba(0, 191, 255, 0.4);
+        }
+
+        /* ====== TIMELINE ====== */
+        #timeline {
+            background: #fff;
+            color: #000;
+        }
+
+        #timeline h2 {
+            font-size: 2.5rem;
+            color: var(--blue);
+            margin-bottom: 3rem;
+            text-align: center;
+        }
+
+        .timeline {
+            position: relative;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .timeline::before {
+            content: '';
+            position: absolute;
+            left: 50%;
+            width: 3px;
+            background: rgba(0, 191, 255, 0.4);
+            top: 0;
+            bottom: 0;
+            border-radius: 2px;
+        }
+
+        .timeline-step {
+            position: relative;
+            width: 50%;
+            padding: 1rem 2rem;
+            opacity: 0;
+            transform: translateY(50px);
+        }
+
+        .timeline-step.left {
+            left: 0;
+            text-align: right;
+        }
+
+        .timeline-step.right {
+            left: 50%;
+            text-align: left;
+        }
+
+        .timeline-content {
+            background: #fdfdfd;
+            border-radius: 12px;
+            padding: 1.5rem;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+        }
+
+        .timeline-step::after {
+            content: '';
+            position: absolute;
+            top: 25px;
+            width: 20px;
+            height: 20px;
+            background: var(--blue);
+            border-radius: 50%;
+            box-shadow: 0 0 10px rgba(0, 191, 255, 0.5);
+        }
+
+        .timeline-step.left::after {
+            right: -10px;
+        }
+
+        .timeline-step.right::after {
+            left: -10px;
+        }
+
+        .timeline-content h3 {
+            color: var(--blue);
+            margin-bottom: 0.3rem;
+        }
+
+        .timeline-content p,
+        .timeline-content li {
+            color: #444;
+            font-size: 0.95rem;
+            line-height: 1.6;
+        }
+
+        .timeline-content ul {
+            margin: 0.5rem 0 0 1.2rem;
+            padding: 0;
+        }
+
+        /* ====== SKILLS ====== */
+        #skills {
+            background: var(--gradient2);
+            color: #fff;
+            text-align: center;
+        }
+
+        #skills h2 {
+            font-size: 2.3rem;
+            color: var(--blue);
+            margin-bottom: 2rem;
+        }
+
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 1rem;
+            width: 100%;
+            max-width: 900px;
+        }
+
+        .skill-item {
+            background: rgba(255, 255, 255, 0.08);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            padding: 1rem;
+            border-radius: 10px;
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.4s ease;
+        }
+
+        .skill-item:hover {
+            background: rgba(0, 191, 255, 0.1);
+            transform: translateY(-4px);
+            box-shadow: 0 0 15px rgba(0, 191, 255, 0.2);
+        }
+
+        /* ====== ACHIEVEMENTS ====== */
+        #achievements {
+            background: #0a0a0a;
+            color: #fff;
+            text-align: center;
+        }
+
+        #achievements h2 {
+            color: var(--blue);
+            font-size: 2.3rem;
+            margin-bottom: 2rem;
+        }
+
+        .achievement {
+            max-width: 700px;
+            margin: 0 auto 1rem;
+            font-size: 1rem;
+            line-height: 1.6;
+            opacity: 0;
+            transform: translateY(30px);
+        }
+
+        /* ====== RESPONSIVE ====== */
+        @media (max-width: 900px) {
+            #about {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .about-photo img {
+                width: 90%;
+                margin-top: 2rem;
+            }
+
+            .timeline-step {
+                width: 100%;
+                left: 0 !important;
+                text-align: center;
+            }
+
+            .timeline::before {
+                left: 10px;
+            }
+        }
+
+        /* ====== Overlay + Menu Fix ====== */
+        .shape-overlays {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            z-index: 998;
+            pointer-events: none;
+            background: rgba(0, 0, 0, 0);
+            transition: background 0.6s ease;
+        }
+
+        .shape-overlays.is-opened {
+            pointer-events: auto;
+            background: rgba(0, 0, 0, 0.98);
+        }
+
+        .global-menu {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            z-index: 999;
+            pointer-events: none;
+            opacity: 0;
+            transition: opacity 0.4s ease;
+        }
+
+        .global-menu__item {
+            color: white;
+            font-family: 'Arapey', serif;
+            font-size: 3rem;
+            margin: 1rem 0;
+            opacity: 0;
+            transform: translateY(20px);
+            transition: all 0.6s ease;
+        }
+
+        .global-menu.is-opened {
+            opacity: 1;
+            pointer-events: auto;
+        }
+
+        .global-menu.is-opened .global-menu__item {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .hamburger {
+            z-index: 1000;
+        }
+    </style>
+</head>
+
+<body class="demo-3">
+    <div class="background"></div>
+    <main class="main main--demo-3">
+        <div class="content content--demo-3">
+
+            <!-- ===== HAMBURGER MENU ===== -->
+            <div class="hamburger hamburger--demo-3 js-hover">
+                <div class="hamburger__line hamburger__line--01">
+                    <div class="hamburger__line-in hamburger__line-in--01"></div>
+                </div>
+                <div class="hamburger__line hamburger__line--02">
+                    <div class="hamburger__line-in hamburger__line-in--02"></div>
+                </div>
+                <div class="hamburger__line hamburger__line--03">
+                    <div class="hamburger__line-in hamburger__line-in--03"></div>
+                </div>
+                <div class="hamburger__line hamburger__line--cross01">
+                    <div class="hamburger__line-in hamburger__line-in--cross01"></div>
+                </div>
+                <div class="hamburger__line hamburger__line--cross02">
+                    <div class="hamburger__line-in hamburger__line-in--cross02"></div>
+                </div>
+            </div>
+
+            <!-- ===== OVERLAY MENU ===== -->
+            <div class="global-menu">
+                <div class="global-menu__wrap">
+                    <a class="global-menu__item global-menu__item--demo-3" href="./index.html">Home</a>
+                    <a class="global-menu__item global-menu__item--demo-3" href="./about2.html">About</a>
+                    <a class="global-menu__item global-menu__item--demo-3" href="#">Experience</a>
+                    <a class="global-menu__item global-menu__item--demo-3" href="./project.html">Projects</a>
+                </div>
+            </div>
+            <svg class="shape-overlays" viewBox="0 0 100 100" preserveAspectRatio="none">
+                <path class="shape-overlays__path"></path>
+                <path class="shape-overlays__path"></path>
+                <path class="shape-overlays__path"></path>
+            </svg>
+
+            <!-- ===== ABOUT SECTION ===== -->
+            <section id="about">
+                <div class="about-text fade-in-up">
+                    <h1>ABOUT</h1>
+                    <p>I’m <strong>Vedant Dhamale</strong>, an AI & Data Science Engineer passionate about crafting
+                        intelligent systems
+                        that fuse <strong>data-driven insights</strong> with modern <strong>cloud solutions</strong>. My
+                        expertise includes
+                        <strong>Machine Learning</strong>, <strong>Deep Learning</strong>, and <strong>Data
+                            Engineering</strong> using
+                        <strong>TensorFlow</strong>, <strong>PySpark</strong>, and <strong>Azure</strong>.
+                    </p>
+                    <p>I’ve led impactful projects at <strong>EY Excelerate</strong> and <strong>IoTIOT.in</strong>,
+                        focusing on real-world
+                        applications of AI and analytics.</p>
+                    <p class="scroll-hint">Scroll to Explore ↓</p>
+                </div>
+                <div class="about-photo"><img src="./assets/Vedant_dhamale.jpg" alt="Vedant Dhamale"></div>
+            </section>
+
+            <!-- ===== TIMELINE ===== -->
+            <section id="timeline">
+                <h2>Professional Experience</h2>
+                <div class="timeline">
+                    <div class="timeline-step left">
+                        <div class="timeline-content">
+                            <h3>Cognizant Technology Solutions</h3>
+                            <p><strong>Programmer Analyst (Data Engineer)</strong> | Jul 2025 – Present</p>
+                            <p>(Full-time role)</p>
+                        </div>
+                    </div>
+                    <div class="timeline-step right">
+                        <div class="timeline-content">
+                            <h3>Cognizant - GenC Next</h3>
+                            <p><strong>Data Engineering Intern</strong> | Mar 2025 – Jun 2025 | Chennai, Tamil Nadu</p>
+                            <ul>
+                                <li>Designed and deployed automated PySpark and Azure Data Factory pipelines.</li>
+                                <li>Implemented MD5 validation, archival, purging, and metadata tracking.</li>
+                                <li>Performed EDA, profiling, and API-based enrichment.</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="timeline-step left">
+                        <div class="timeline-content">
+                            <h3>EY Global Delivery Services (AICTE Collaboration)</h3>
+                            <p><strong>Data Analytics Intern</strong> | Feb 2024 – Apr 2024 | Remote</p>
+                            <ul>
+                                <li>Completed Next Gen Employability Program in Advanced Data Analytics.</li>
+                                <li>Built Power BI dashboard analyzing global unicorn businesses.</li>
+                                <li>Recognized among Top 37 nationwide for analytical excellence.</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="timeline-step right">
+                        <div class="timeline-content">
+                            <h3>Excelerate</h3>
+                            <p><strong>Data Analyst Associate Intern</strong> | Jan 2024 – Feb 2024 | Remote</p>
+                            <ul>
+                                <li>Created interactive dashboards visualizing sign-up trends and demographics.</li>
+                                <li>Performed preprocessing and feature engineering with Pandas and NumPy.</li>
+                                <li>Delivered insights using Looker Studio.</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="timeline-step left">
+                        <div class="timeline-content">
+                            <h3>IoTIOT.in</h3>
+                            <p><strong>Deep Learning Intern</strong> | Aug 2021 – Apr 2022 | Pune, Maharashtra</p>
+                            <ul>
+                                <li>Developed a YOLOv3-based Weapon Detection System with 96.2% accuracy.</li>
+                                <li>Optimized CNN architecture to improve model inference and performance.</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <h2 style="margin-top:6rem;">Education</h2>
+                <div class="timeline">
+                    <div class="timeline-step left">
+                        <div class="timeline-content">
+                            <h3>Vidya Pratishthan’s Kamalnayan Bajaj Institute of Engineering and Technology, Baramati
+                            </h3>
+                            <p><strong>Bachelor of Engineering in Artificial Intelligence and Data Science</strong></p>
+                            <p>📍 Baramati, Maharashtra | Nov 2022 – May 2025</p>
+                            <p><strong>CGPA:</strong> 8.45 / 10</p>
+                        </div>
+                    </div>
+                    <div class="timeline-step right">
+                        <div class="timeline-content">
+                            <h3>Government Polytechnic, Pune</h3>
+                            <p><strong>Diploma in Computer Engineering</strong></p>
+                            <p>📍 Pune, Maharashtra | Aug 2019 – Jul 2022</p>
+                            <p><strong>Grade:</strong> 88.20%</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- ===== SKILLS ===== -->
+            <section id="skills">
+                <h2>Technical Skills</h2>
+                <div class="skills-grid">
+                    <div class="skill-item">Python</div>
+                    <div class="skill-item">TensorFlow</div>
+                    <div class="skill-item">PySpark</div>
+                    <div class="skill-item">Azure Data Factory</div>
+                    <div class="skill-item">Databricks</div>
+                    <div class="skill-item">Power BI</div>
+                    <div class="skill-item">Keras</div>
+                    <div class="skill-item">SQL</div>
+                    <div class="skill-item">Machine Learning</div>
+                    <div class="skill-item">Deep Learning</div>
+                    <div class="skill-item">Git / GitHub</div>
+                    <div class="skill-item">Flask</div>
+                    <div class="skill-item">Pandas</div>
+                    <div class="skill-item">NumPy</div>
+                    <div class="skill-item">ETL</div>
+                    <div class="skill-item">Looker Studio</div>
+                </div>
+            </section>
+
+            <!-- ===== ACHIEVEMENTS ===== -->
+            <section id="achievements">
+                <h2>Achievements</h2>
+                <div class="achievement">• Ranked Top 37 in EY Advanced Data Analytics Internship.</div>
+                <div class="achievement">• Awarded “Star Performer” and $1,000 Scholarship by Saint Louis University.
+                </div>
+                <div class="achievement">• Published multiple ML, PySpark & Azure projects on GitHub.</div>
+            </section>
+
+        </div>
+    </main>
+
+    <!-- ===== JS FILES ===== -->
+    <script src="js/demo.js"></script>
+    <script src="js/easings.js"></script>
+    <script src="js/demo3.js"></script>
+
+    <!-- ===== HAMBURGER FIX SCRIPT ===== -->
+    <script>
+        const hamburger = document.querySelector(".hamburger");
+        const overlay = document.querySelector(".shape-overlays");
+        const menu = document.querySelector(".global-menu");
+        const body = document.body;
+
+        let menuOpen = false;
+
+        hamburger.addEventListener("click", () => {
+            menuOpen = !menuOpen;
+
+            if (menuOpen) {
+                overlay.classList.add("is-opened");
+                menu.classList.add("is-opened");
+                body.style.overflow = "hidden";
+                hamburger.classList.add("is-opened-navi");
+            } else {
+                overlay.classList.remove("is-opened");
+                menu.classList.remove("is-opened");
+                body.style.overflow = "auto";
+                hamburger.classList.remove("is-opened-navi");
+            }
+        });
+    </script>
+</body>
+
+</html>
+
+
+
+
+
+
+section {
+            min-height: 100vh;
+            padding: 6rem 10%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+            position: relative;
+            transition: background 1s ease;
+        }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        <!DOCTYPE html>
+<html lang="en" class="no-js">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>About | Vedant Dhamale</title>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=DM+Sans:wght@400;500;700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="css/demo1.css" />
+    <link rel="stylesheet" href="./css/style3.css" />
+    <link rel="stylesheet" href="./css/mediaqueries.css" />
+    <script>document.documentElement.className = 'js';</script>
+
+    <style>
+        :root {
+            --font-main: 'DM Sans', 'Inter', sans-serif;
+            --blue: #00bfff;
+            --light: #f5f6f8;
+            --dark: #0b0b0b;
+            --gradient1: linear-gradient(120deg, #e0f7ff 0%, #ffffff 100%);
+            --gradient2: linear-gradient(120deg, #0b0b0b 0%, #111 100%);
+        }
+
+        html,
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: var(--font-main);
+            overflow-x: hidden;
+            scroll-behavior: smooth;
+            color: #111;
+            background: var(--light);
+        }
+
+        .background {
+            position: fixed;
+            width: 100%;
+            height: 100vh;
+            background: var(--gradient1);
+            z-index: -2;
+            transition: all 1s ease;
+        }
+
+        main {
+            position: relative;
+            z-index: 1;
+        }
+
+        section {
+            min-height: 100vh;
+            padding: 6rem 10%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+        }
+
+        /* ====== ABOUT SECTION ====== */
+        #about {
+            flex-direction: row;
+            justify-content: space-between;
+            background: transparent;
+        }
+
+        .about-text {
+            flex: 1;
+            color: #000;
+        }
+
+        .about-text h1 {
+            font-size: 5rem;
+            font-weight: 700;
+            letter-spacing: -2px;
+            margin-bottom: 1.5rem;
+        }
+
+        .about-text p {
+            font-size: 1.1rem;
+            line-height: 1.8rem;
+            color: #333;
+            max-width: 520px;
+        }
+
+        .scroll-hint {
+            color: #777;
+            font-size: 0.9rem;
+            letter-spacing: 1px;
+            margin-top: 2rem;
+        }
+
+        .about-photo {
+            flex: 1;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+
+        .about-photo img {
+            width: 75%;
+            border-radius: 20px;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
+
+        }
+
+
+
+        /* ====== TIMELINE ====== */
+        #timeline {
+            background: #fff;
+            color: #000;
+        }
+
+        #timeline h2 {
+            font-size: 2.5rem;
+            color: var(--blue);
+            margin-bottom: 3rem;
+            text-align: center;
+        }
+
+        .timeline {
+            position: relative;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .timeline::before {
+            content: '';
+            position: absolute;
+            left: 50%;
+            width: 3px;
+            background: rgba(0, 191, 255, 0.4);
+            top: 0;
+            bottom: 0;
+            border-radius: 2px;
+        }
+
+        .timeline-step {
+            position: relative;
+            width: 50%;
+            padding: 1rem 2rem;
+            opacity: 0;
+            transform: translateY(50px);
+        }
+
+        .timeline-step.left {
+            left: 0;
+            text-align: right;
+        }
+
+        .timeline-step.right {
+            left: 50%;
+            text-align: left;
+        }
+
+        .timeline-content {
+            background: #fdfdfd;
+            border-radius: 12px;
+            padding: 1.5rem;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+        }
+
+        .timeline-step::after {
+            content: '';
+            position: absolute;
+            top: 25px;
+            width: 20px;
+            height: 20px;
+            background: var(--blue);
+            border-radius: 50%;
+            box-shadow: 0 0 10px rgba(0, 191, 255, 0.5);
+        }
+
+        .timeline-step.left::after {
+            right: -10px;
+        }
+
+        .timeline-step.right::after {
+            left: -10px;
+        }
+
+        .timeline-content h3 {
+            color: var(--blue);
+            margin-bottom: 0.3rem;
+        }
+
+        .timeline-content p,
+        .timeline-content li {
+            color: #444;
+            font-size: 0.95rem;
+            line-height: 1.6;
+        }
+
+        .timeline-content ul {
+            margin: 0.5rem 0 0 1.2rem;
+            padding: 0;
+        }
+
+        /* ====== SKILLS ====== */
+        #skills {
+            background: var(--gradient2);
+            color: #fff;
+            text-align: center;
+        }
+
+        #skills h2 {
+            font-size: 2.3rem;
+            color: var(--blue);
+            margin-bottom: 2rem;
+        }
+
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 1rem;
+            width: 100%;
+            max-width: 900px;
+        }
+
+        .skill-item {
+            background: rgba(255, 255, 255, 0.08);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            padding: 1rem;
+            border-radius: 10px;
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.4s ease;
+        }
+
+        .skill-item:hover {
+            background: rgba(0, 191, 255, 0.1);
+            transform: translateY(-4px);
+            box-shadow: 0 0 15px rgba(0, 191, 255, 0.2);
+        }
+
+        /* ====== ACHIEVEMENTS ====== */
+        #achievements {
+            background: #0a0a0a;
+            color: #fff;
+            text-align: center;
+        }
+
+        #achievements h2 {
+            color: var(--blue);
+            font-size: 2.3rem;
+            margin-bottom: 2rem;
+        }
+
+        .achievement {
+            max-width: 700px;
+            margin: 0 auto 1rem;
+            font-size: 1rem;
+            line-height: 1.6;
+            opacity: 0;
+            transform: translateY(30px);
+        }
+
+        /* ====== RESPONSIVE ====== */
+        @media (max-width: 900px) {
+            #about {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .about-photo img {
+                width: 90%;
+                margin-top: 2rem;
+            }
+
+            .timeline-step {
+                width: 100%;
+                left: 0 !important;
+                text-align: center;
+            }
+
+            .timeline::before {
+                left: 10px;
+            }
+        }
+    </style>
+
+</head>
+
+<body class="demo-3">
+    <div class="background"></div>
+
+    <main class="main main--demo-3">
+        <div class="content content--demo-3">
+
+            <!-- ===== HAMBURGER MENU ===== -->
+            <div class="hamburger hamburger--demo-3 js-hover">
+                <div class="hamburger__line hamburger__line--01">
+                    <div class="hamburger__line-in hamburger__line-in--01"></div>
+                </div>
+                <div class="hamburger__line hamburger__line--02">
+                    <div class="hamburger__line-in hamburger__line-in--02"></div>
+                </div>
+                <div class="hamburger__line hamburger__line--03">
+                    <div class="hamburger__line-in hamburger__line-in--03"></div>
+                </div>
+                <div class="hamburger__line hamburger__line--cross01">
+                    <div class="hamburger__line-in hamburger__line-in--cross01"></div>
+                </div>
+                <div class="hamburger__line hamburger__line--cross02">
+                    <div class="hamburger__line-in hamburger__line-in--cross02"></div>
+                </div>
+            </div>
+
+            <!-- ===== OVERLAY MENU ===== -->
+            <div class="global-menu">
+                <div class="global-menu__wrap">
+                    <a class="global-menu__item global-menu__item--demo-3" href="./index.html">Home</a>
+                    <a class="global-menu__item global-menu__item--demo-3" href="./about2.html">About</a>
+                    <a class="global-menu__item global-menu__item--demo-3" href="#">Experience</a>
+                    <a class="global-menu__item global-menu__item--demo-3" href="./project.html">Projects</a>
+                </div>
+            </div>
+            <svg class="shape-overlays" viewBox="0 0 100 100" preserveAspectRatio="none">
+                <path class="shape-overlays__path"></path>
+                <path class="shape-overlays__path"></path>
+                <path class="shape-overlays__path"></path>
+            </svg>
+
+            <!-- ===== ABOUT SECTION ===== -->
+            <section id="about">
+                <div class="about-text fade-in-up">
+                    <h1>ABOUT</h1>
+                    <p>I’m <strong>Vedant Dhamale</strong>, an AI & Data Science Engineer passionate about crafting
+                        intelligent systems that fuse <strong>data-driven insights</strong> with modern <strong>cloud
+                            solutions</strong>. My expertise includes <strong>Machine Learning</strong>, <strong>Deep
+                            Learning</strong>, and <strong>Data Engineering</strong> using <strong>TensorFlow</strong>,
+                        <strong>PySpark</strong>, and <strong>Azure</strong>.
+                    </p>
+                    <p>I’ve led impactful projects at <strong>EY Excelerate</strong> and <strong>IoTIOT.in</strong>,
+                        focusing on real-world applications of AI and analytics.</p>
+                    <p class="scroll-hint">Scroll to Explore ↓</p>
+                </div>
+                <div class="about-photo"><img src="./assets/Vedant_dhamale.jpg" alt="Vedant Dhamale"></div>
+            </section>
+
+            <!-- ===== TIMELINE ===== -->
+            <section id="timeline">
+                <h2>Professional Experience</h2>
+                <div class="timeline">
+                    <div class="timeline-step left">
+                        <div class="timeline-content">
+                            <h3>Cognizant Technology Solutions</h3>
+                            <p><strong>Programmer Analyst (Data Engineer)</strong> | Jul 2025 – Present</p>
+                            <p>(Full-time role)</p>
+                        </div>
+                    </div>
+                    <div class="timeline-step right">
+                        <div class="timeline-content">
+                            <h3>Cognizant - GenC Next</h3>
+                            <p><strong>Data Engineering Intern</strong> | Mar 2025 – Jun 2025 | Chennai, Tamil Nadu</p>
+                            <ul>
+                                <li>Designed and deployed automated PySpark and Azure Data Factory pipelines.</li>
+                                <li>Implemented MD5 validation, archival, purging, and metadata tracking.</li>
+                                <li>Performed EDA, profiling, and API-based enrichment.</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="timeline-step left">
+                        <div class="timeline-content">
+                            <h3>EY Global Delivery Services (AICTE Collaboration)</h3>
+                            <p><strong>Data Analytics Intern</strong> | Feb 2024 – Apr 2024 | Remote</p>
+                            <ul>
+                                <li>Completed Next Gen Employability Program in Advanced Data Analytics.</li>
+                                <li>Built Power BI dashboard analyzing global unicorn businesses.</li>
+                                <li>Recognized among Top 37 nationwide for analytical excellence.</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="timeline-step right">
+                        <div class="timeline-content">
+                            <h3>Excelerate</h3>
+                            <p><strong>Data Analyst Associate Intern</strong> | Jan 2024 – Feb 2024 | Remote</p>
+                            <ul>
+                                <li>Created interactive dashboards visualizing sign-up trends and demographics.</li>
+                                <li>Performed preprocessing and feature engineering with Pandas and NumPy.</li>
+                                <li>Delivered insights using Looker Studio.</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="timeline-step left">
+                        <div class="timeline-content">
+                            <h3>IoTIOT.in</h3>
+                            <p><strong>Deep Learning Intern</strong> | Aug 2021 – Apr 2022 | Pune, Maharashtra</p>
+                            <ul>
+                                <li>Developed a YOLOv3-based Weapon Detection System with 96.2% accuracy.</li>
+                                <li>Optimized CNN architecture to improve model inference and performance.</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <h2 style="margin-top:6rem;">Education</h2>
+                <div class="timeline">
+                    <div class="timeline-step left">
+                        <div class="timeline-content">
+                            <h3>Vidya Pratishthan’s Kamalnayan Bajaj Institute of Engineering and Technology, Baramati
+                            </h3>
+                            <p><strong>Bachelor of Engineering in Artificial Intelligence and Data Science</strong></p>
+                            <p>📍 Baramati, Maharashtra | Nov 2022 – May 2025</p>
+                            <p><strong>CGPA:</strong> 8.45 / 10</p>
+                        </div>
+                    </div>
+                    <div class="timeline-step right">
+                        <div class="timeline-content">
+                            <h3>Government Polytechnic, Pune</h3>
+                            <p><strong>Diploma in Computer Engineering</strong></p>
+                            <p>📍 Pune, Maharashtra | Aug 2019 – Jul 2022</p>
+                            <p><strong>Grade:</strong> 88.20%</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- ===== SKILLS ===== -->
+            <section id="skills">
+                <h2>Technical Skills</h2>
+                <div class="skills-grid">
+                    <div class="skill-item">Python</div>
+                    <div class="skill-item">TensorFlow</div>
+                    <div class="skill-item">PySpark</div>
+                    <div class="skill-item">Azure Data Factory</div>
+                    <div class="skill-item">Databricks</div>
+                    <div class="skill-item">Power BI</div>
+                    <div class="skill-item">Keras</div>
+                    <div class="skill-item">SQL</div>
+                    <div class="skill-item">Machine Learning</div>
+                    <div class="skill-item">Deep Learning</div>
+                    <div class="skill-item">Git / GitHub</div>
+                    <div class="skill-item">Flask</div>
+                    <div class="skill-item">Pandas</div>
+                    <div class="skill-item">NumPy</div>
+                    <div class="skill-item">ETL</div>
+                    <div class="skill-item">Looker Studio</div>
+                </div>
+            </section>
+
+            <!-- ===== ACHIEVEMENTS ===== -->
+            <section id="achievements">
+                <h2>Achievements</h2>
+                <div class="achievement">• Ranked Top 37 in EY Advanced Data Analytics Internship.</div>
+                <div class="achievement">• Awarded “Star Performer” and $1,000 Scholarship by Saint Louis University.
+                </div>
+                <div class="achievement">• Published multiple ML, PySpark & Azure projects on GitHub.</div>
+            </section>
+
+        </div>
+    </main>
+
+    <!-- ===== JS FILES ===== -->
+    <script src="js/demo.js"></script>
+    <script src="js/easings.js"></script>
+    <script src="js/demo3.js"></script>
+
+    <!-- ===== GSAP ===== -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+    <script>
+        gsap.registerPlugin(ScrollTrigger);
+        const bg = document.getElementById("bg");
+        window.addEventListener("scroll", () => {
+            const y = window.scrollY;
+            bg.style.transform = `scale(${1 + y / 2500}) translateY(${y / 6}px)`;
+            if (y < window.innerHeight * 1) bg.style.background = "var(--gradient1)";
+            else if (y < window.innerHeight * 2) bg.style.background = "linear-gradient(120deg, #dff6ff 0%, #f8f8f8 100%)";
+            else if (y < window.innerHeight * 3) bg.style.background = "linear-gradient(120deg, #101820 0%, #0b0b0b 100%)";
+            else bg.style.background = "linear-gradient(120deg, #000 0%, #0a0a0a 100%)";
+        });
+
+        const observer = new IntersectionObserver(entries => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) entry.target.classList.add('in-view');
+            });
+        }, { threshold: 0.2 });
+
+        document.querySelectorAll('.fade-in-up, .about-photo img').forEach(el => observer.observe(el));
+
+        gsap.utils.toArray(".timeline-step, .skill-item, .achievement").forEach(el => {
+            gsap.to(el, {
+                scrollTrigger: { trigger: el, start: "top 85%" },
+                opacity: 1, y: 0, duration: 1.2, ease: "power2.out"
+            });
+        });
+    </script>
+
+</body>
+
+</html>
+
+
+
+
+
+
+
+
+
+
+
+above page is about pages
+
+index page 
+
+
+
+<!DOCTYPE html>
+<html lang="en" class="no-js">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>About | Vedant Dhamale</title>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&family=Playfair+Display:wght@500;700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="css/demo1.css" />
+    <link rel="stylesheet" href="./css/style3.css" />
+    <link rel="stylesheet" href="./css/mediaqueries.css" />
+    <script>document.documentElement.className = 'js';</script>
+
+    <style>
+        :root {
+            --font-main: 'Poppins', sans-serif;
+            --font-accent: 'Playfair Display', serif;
+            --blue: #00bfff;
+            --dark: #0b0b0b;
+            --light: #f5f5f5;
+            --accent: #e0f7ff;
+        }
+
+        html,
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: var(--font-main);
+            color: var(--dark);
+            background: var(--light);
+            overflow: hidden;
+        }
+
+        .background {
+            position: fixed;
+            width: 100%;
+            height: 100vh;
+            background: linear-gradient(135deg, #fafafa 0%, #f0f8ff 100%);
+            z-index: -2;
+            transition: all 1s ease;
+        }
+
+        main {
+            position: relative;
+            z-index: 1;
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        /* ===== ABOUT SECTION ===== */
+        #about {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 5rem 10%;
+            width: 100%;
+            max-width: 1200px;
+            animation: fadeIn 1.8s ease forwards;
+            opacity: 0;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(40px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .about-text {
+            flex: 1;
+            padding-right: 2rem;
+        }
+
+        .about-text h1 {
+            font-family: var(--font-accent);
+            font-size: 4.5rem;
+            font-weight: 700;
+            color: #000;
+            letter-spacing: -2px;
+            margin-bottom: 1.2rem;
+            background: linear-gradient(120deg, #000 0%, #555 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .about-text p {
+            font-size: 1.15rem;
+            color: #333;
+            line-height: 1.8rem;
+            margin-bottom: 2rem;
+            font-weight: 400;
+            max-width: 520px;
+        }
+
+        .skills-highlight {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.8rem;
+            max-width: 520px;
+        }
+
+        .skill-tag {
+            background: #111;
+            color: #fff;
+            border-radius: 25px;
+            padding: 0.6rem 1.2rem;
+            font-size: 0.9rem;
+            letter-spacing: 0.5px;
+            text-transform: uppercase;
+            transition: all 0.4s ease;
+            font-weight: 500;
+        }
+
+        .skill-tag:hover {
+            background: var(--blue);
+            transform: scale(1.05);
+            box-shadow: 0 0 15px rgba(0, 191, 255, 0.3);
+        }
+
+        .about-photo {
+            flex: 1;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .about-photo img {
+            width: 75%;
+            border-radius: 20px;
+            filter: grayscale(100%);
+            transition: filter 0.8s ease, transform 0.8s ease;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.25);
+        }
+
+        .about-photo img:hover {
+            filter: grayscale(0%);
+            transform: scale(1.03);
+        }
+
+        /* ===== LOADING ANIMATION ===== */
+        .loader {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100vh;
+            background: #fff;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 10;
+            animation: loaderFadeOut 1.5s ease forwards;
+            animation-delay: 1.5s;
+        }
+
+        .loader h2 {
+            font-family: var(--font-accent);
+            font-size: 2rem;
+            color: #000;
+            opacity: 0;
+            animation: textFade 1.2s ease forwards;
+        }
+
+        @keyframes textFade {
+            from {
+                opacity: 0;
+                letter-spacing: 2px;
+            }
+
+            to {
+                opacity: 1;
+                letter-spacing: 6px;
+            }
+        }
+
+        @keyframes loaderFadeOut {
+            to {
+                opacity: 0;
+                visibility: hidden;
+            }
+        }
+
+        /* ===== RESPONSIVE ===== */
+        @media (max-width: 900px) {
+            #about {
+                flex-direction: column;
+                text-align: center;
+                padding: 3rem 5%;
+            }
+
+            .about-photo img {
+                width: 85%;
+                margin-top: 2rem;
+            }
+
+            .about-text h1 {
+                font-size: 3rem;
+            }
+
+            .skills-highlight {
+                justify-content: center;
+            }
+        }
+    </style>
+</head>
+
+<body class="demo-3">
+    <div class="background"></div>
+
+    <!-- ===== LOADER ===== -->
+    <div class="loader">
+        <h2>Loading...</h2>
+    </div>
+
+    <main class="main main--demo-3">
+        <div class="content content--demo-3">
+
+            <!-- ===== HAMBURGER MENU (unchanged) ===== -->
+            <div class="hamburger hamburger--demo-3 js-hover">
+                <div class="hamburger__line hamburger__line--01">
+                    <div class="hamburger__line-in hamburger__line-in--01"></div>
+                </div>
+                <div class="hamburger__line hamburger__line--02">
+                    <div class="hamburger__line-in hamburger__line-in--02"></div>
+                </div>
+                <div class="hamburger__line hamburger__line--03">
+                    <div class="hamburger__line-in hamburger__line-in--03"></div>
+                </div>
+                <div class="hamburger__line hamburger__line--cross01">
+                    <div class="hamburger__line-in hamburger__line-in--cross01"></div>
+                </div>
+                <div class="hamburger__line hamburger__line--cross02">
+                    <div class="hamburger__line-in hamburger__line-in--cross02"></div>
+                </div>
+            </div>
+
+            <div class="global-menu">
+                <div class="global-menu__wrap">
+                    <a class="global-menu__item global-menu__item--demo-3" href="./index.html">Home</a>
+                    <a class="global-menu__item global-menu__item--demo-3" href="./about2.html">About</a>
+                    <a class="global-menu__item global-menu__item--demo-3" href="./project.html">Projects</a>
+                    <a class="global-menu__item global-menu__item--demo-3" href="./contact.html">Contact</a>
+                </div>
+            </div>
+
+            <svg class="shape-overlays" viewBox="0 0 100 100" preserveAspectRatio="none">
+                <path class="shape-overlays__path"></path>
+                <path class="shape-overlays__path"></path>
+                <path class="shape-overlays__path"></path>
+            </svg>
+
+            <!-- ===== ABOUT SECTION ===== -->
+            <section id="about">
+                <div class="about-text fade-in-up">
+                    <h1>VEDANT DHAMALE</h1>
+                    <p>AI & Data Science Engineer with a strong passion for transforming data into meaningful
+                        intelligence. I
+                        specialize in building intelligent, scalable, and cloud-driven solutions across data engineering
+                        and
+                        machine learning ecosystems.</p>
+
+                    <div class="skills-highlight">
+                        <span class="skill-tag">AI & ML</span>
+                        <span class="skill-tag">Deep Learning</span>
+                        <span class="skill-tag">PySpark</span>
+                        <span class="skill-tag">Azure Data Factory</span>
+                        <span class="skill-tag">Databricks</span>
+                        <span class="skill-tag">Power BI</span>
+                        <span class="skill-tag">TensorFlow</span>
+                    </div>
+                </div>
+
+                <div class="about-photo">
+                    <img src="./assets/Vedant_dhamale.jpg" alt="Vedant Dhamale">
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <!-- JS Files -->
+    <script src="js/demo.js"></script>
+    <script src="js/easings.js"></script>
+    <script src="js/demo3.js"></script>
+</body>
+
+</html>
+
+
+
+
+
+
+<!DOCTYPE html>
+<html lang="en" class="no-js">
+
+<head>
+	<meta charset="UTF-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:200,400|Arapey" rel="stylesheet">
+	<link rel="stylesheet" type="text/css" href="css/demo.css" />
+
+	<title>My Portfolio</title>
+	<link rel="stylesheet" href="./css/style2.css" />
+	<link rel="stylesheet" href="./css/mediaqueries.css" />
+	<script>document.documentElement.className = 'js';</script>
+	<style>
+		.background {
+			width: 100%;
+			height: 100vh;
+			background-image: url('./assets/bg-image.png');
+			background-size: cover;
+			background-repeat: no-repeat;
+			background-position: center center;
+		}
+	</style>
+</head>
+
+<body class="demo-3">
+
+	<div class="background">
+
+		<main class="main main--demo-3">
+
+			<div class="content content--demo-3">
+				<div class="hamburger hamburger--demo-3 js-hover">
+					<div class="hamburger__line hamburger__line--01">
+						<div class="hamburger__line-in hamburger__line-in--01"></div>
+					</div>
+					<div class="hamburger__line hamburger__line--02">
+						<div class="hamburger__line-in hamburger__line-in--02"></div>
+					</div>
+					<div class="hamburger__line hamburger__line--03">
+						<div class="hamburger__line-in hamburger__line-in--03"></div>
+					</div>
+					<div class="hamburger__line hamburger__line--cross01">
+						<div class="hamburger__line-in hamburger__line-in--cross01"></div>
+					</div>
+					<div class="hamburger__line hamburger__line--cross02">
+						<div class="hamburger__line-in hamburger__line-in--cross02"></div>
+					</div>
+				</div>
+				<br><br>
+				<br>
+				<!-- <br> -->
+
+				<section id="profile">
+					<div class="section__pic-container">
+						<img src="./Photo.png" alt="Vedant Dhamale profile picture" />
+					</div>
+					<div class="section__text">
+						<p class="section__text__p1">Hello, I'm</p>
+						<h1 class="title">Vedant Dhamale</h1>
+						<p class="section__text__p2">AI & Data Science Engineer</p>
+						<!-- <div class="btn-container">
+							<a href="https://drive.google.com/file/d/1W46Dvns8EK3dJjvnIYWYl7dH0qBv-AIs/view?usp=sharing"
+								target="_blank">
+								<button class="btn btn-color-2">
+									Download CV
+								</button>
+							</a>
+						</div> -->
+
+						<!-- <div id="socials-container">
+							<img src="./assets/linkedin.png" alt="My LinkedIn profile" class="icon"
+								onclick="location.href='www.linkedin.com/in/vedant-dhamale-0ab58b286'" />
+							<img src="./assets/github.png" alt="My Github profile" class="icon"
+								onclick="location.href='https://github.com/'" />
+						</div> -->
+						<div id="socials-container">
+							<img src="./assets/linkedin.png" alt="My LinkedIn profile" class="icon"
+								onclick="window.open('https://www.linkedin.com/in/vedant-dhamale-0ab58b286', '_blank')" />
+
+							<img src="./assets/github.png" alt="My GitHub profile" class="icon"
+								onclick="window.open('https://github.com/VedantDhamale', '_blank')" />
+						</div>
+
+					</div>
+				</section>
+
+
+				<!-- Menu icon list -->
+				<div class="global-menu">
+					<div class="global-menu__wrap">
+						<a class="global-menu__item global-menu__item--demo-3" href="./index.html">Home</a>
+						<a class="global-menu__item global-menu__item--demo-3" href="about2.html">About</a>
+						<a class="global-menu__item global-menu__item--demo-3" href="#">Experience</a>
+						<a class="global-menu__item global-menu__item--demo-3" href="./project.html">Projects</a>
+					</div>
+				</div>
+				<svg class="shape-overlays" viewBox="0 0 100 100" preserveAspectRatio="none">
+					<path class="shape-overlays__path"></path>
+					<path class="shape-overlays__path"></path>
+					<path class="shape-overlays__path"></path>
+				</svg>
+
+			</div>
+
+		</main>
+		<script src="js/demo.js"></script>
+		<script src="js/easings.js"></script>
+		<script src="js/demo3.js"></script>
+		<script src="./js/script2.js"></script>
+	</div>
+</body>
+
+</html>
