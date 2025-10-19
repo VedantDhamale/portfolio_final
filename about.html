@@ -140,21 +140,6 @@
             animation-delay: 0.4s;
         }
 
-        .about-text h1:hover {
-            letter-spacing: 0.6px;
-            transform: translateY(-2px);
-        }
-
-        .about-text h2:hover {
-            letter-spacing: 0.6px;
-            transform: translateY(-2px);
-        }
-
-
-
-
-
-        /* ===== SUB HEADING (Skills) ===== */
         .about-text h2 {
             font-family: 'Clash Display', sans-serif;
             font-size: 1.8rem;
@@ -168,7 +153,6 @@
             animation-delay: 0.8s;
         }
 
-        /* ===== TEXT ===== */
         .about-text p {
             font-size: clamp(1rem, 1.8vw, 1.1rem);
             color: #333;
@@ -240,6 +224,26 @@
             .skills-highlight {
                 justify-content: center;
                 margin: 0 auto;
+            }
+        }
+
+        /* ===== MOBILE VIEW FIX ===== */
+        @media (max-width: 600px) {
+            .about-photo img {
+                max-width: 230px;
+                /* slightly bigger */
+                margin: 0.5rem auto 0.5rem;
+                /* less top and bottom space */
+            }
+
+            .about-text {
+                padding: 0 0.5rem;
+                /* tighter text margins */
+            }
+
+            #about {
+                gap: 1.2rem;
+                /* reduce space between image and text */
             }
         }
 
