@@ -79,7 +79,7 @@
             box-sizing: border-box;
         }
 
-        /* ===== ENTRANCE ANIMATIONS ===== */
+        /* ===== ANIMATIONS ===== */
         .about-text {
             flex: 1 1 450px;
             min-width: 300px;
@@ -129,7 +129,7 @@
             font-weight: 600;
             font-size: clamp(2.3rem, 4vw, 3.8rem);
             letter-spacing: -0.5px;
-            margin-bottom: 1.2rem;
+            margin-bottom: 1rem;
             color: #000;
             transition: all 0.25s ease;
             display: inline-block;
@@ -143,7 +143,7 @@
             font-family: 'Clash Display', sans-serif;
             font-size: 1.8rem;
             font-weight: 600;
-            margin-top: 1.5rem;
+            margin-top: 1.3rem;
             margin-bottom: 0.8rem;
             color: #111;
             opacity: 0;
@@ -204,8 +204,7 @@
             #about {
                 flex-direction: column-reverse;
                 text-align: center;
-                gap: 1.5rem;
-                /* reduced */
+                gap: 1.2rem;
                 align-items: center;
                 justify-content: center;
             }
@@ -218,7 +217,7 @@
 
             .about-photo img {
                 max-width: 270px;
-                margin: 0.3rem auto;
+                margin: 0.2rem auto;
             }
 
             .skills-highlight {
@@ -227,26 +226,28 @@
             }
         }
 
-        /* ===== MOBILE VIEW FIX ===== */
+        /* ===== MOBILE VIEW FIX (Tighter) ===== */
         @media (max-width: 600px) {
             #about {
-                gap: 0.8rem;
-                /* tighter vertical spacing */
+                gap: 0.2rem;
+                /* minimal vertical space */
             }
 
             .about-photo img {
                 max-width: 230px;
-                margin: 0.2rem auto;
-                /* very small margin */
+                margin-top: -0.8rem;
+                /* pull image upward */
+                margin-bottom: 0.1rem;
+                /* nearly touches text */
             }
 
             .about-text {
-                padding: 0 0.3rem;
-                /* reduced side padding */
+                padding: 0 0.2rem;
             }
 
             .about-text h1 {
-                margin-bottom: 0.8rem;
+                margin-top: 0.3rem;
+                margin-bottom: 0.6rem;
             }
 
             .about-text p {
@@ -256,7 +257,7 @@
 
         @media (max-width: 480px) {
             .about-photo img {
-                max-width: 220px;
+                max-width: 215px;
             }
 
             .about-text h1 {
