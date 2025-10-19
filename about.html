@@ -204,7 +204,7 @@
             #about {
                 flex-direction: column-reverse;
                 text-align: center;
-                gap: 1.2rem;
+                gap: 1rem;
                 align-items: center;
                 justify-content: center;
             }
@@ -217,7 +217,8 @@
 
             .about-photo img {
                 max-width: 270px;
-                margin: 0 auto;
+                margin: -0.3rem auto 0rem !important;
+                /* reduced top & bottom margins */
             }
 
             .skills-highlight {
@@ -226,17 +227,16 @@
             }
         }
 
-        /* ===== MOBILE VIEW FIX (Ultra Compact) ===== */
+        /* ===== MOBILE VIEW FIX ===== */
         @media (max-width: 600px) {
             #about {
                 gap: 0.1rem;
-                /* almost zero spacing */
             }
 
             .about-photo img {
                 max-width: 230px;
-                margin: 0.1rem auto !important;
-                /* minimal margin */
+                margin: -0.3rem auto 0rem !important;
+                /* compact spacing */
             }
 
             .about-text {
