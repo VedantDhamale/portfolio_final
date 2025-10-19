@@ -123,7 +123,7 @@
             box-shadow: 0 25px 70px rgba(0, 123, 255, 0.25);
         }
 
-        /* ===== DYNAMIC HEADING ===== */
+        /* ===== HEADING ===== */
         .about-text h1 {
             font-family: 'Clash Display', sans-serif;
             font-weight: 600;
@@ -133,7 +133,6 @@
             color: #000;
             transition: all 0.25s ease;
             display: inline-block;
-            position: relative;
             opacity: 0;
             transform: translateY(20px);
             animation: fadeUp 1.2s ease forwards;
@@ -144,8 +143,8 @@
             font-family: 'Clash Display', sans-serif;
             font-size: 1.8rem;
             font-weight: 600;
-            margin-top: 1.8rem;
-            margin-bottom: 1rem;
+            margin-top: 1.5rem;
+            margin-bottom: 0.8rem;
             color: #111;
             opacity: 0;
             transform: translateY(20px);
@@ -157,7 +156,7 @@
             font-size: clamp(1rem, 1.8vw, 1.1rem);
             color: #333;
             line-height: 1.8rem;
-            margin-bottom: 1.8rem;
+            margin-bottom: 1.5rem;
             font-weight: 400;
             opacity: 0;
             transform: translateY(20px);
@@ -205,7 +204,8 @@
             #about {
                 flex-direction: column-reverse;
                 text-align: center;
-                gap: 2rem;
+                gap: 1.5rem;
+                /* reduced */
                 align-items: center;
                 justify-content: center;
             }
@@ -213,12 +213,12 @@
             .about-text,
             .about-photo {
                 width: 100%;
-                max-width: 500px;
+                max-width: 480px;
             }
 
             .about-photo img {
-                max-width: 280px;
-                margin: 0 auto;
+                max-width: 270px;
+                margin: 0.3rem auto;
             }
 
             .skills-highlight {
@@ -229,21 +229,28 @@
 
         /* ===== MOBILE VIEW FIX ===== */
         @media (max-width: 600px) {
+            #about {
+                gap: 0.8rem;
+                /* tighter vertical spacing */
+            }
+
             .about-photo img {
                 max-width: 230px;
-                /* slightly bigger */
-                margin: 0.5rem auto 0.5rem;
-                /* less top and bottom space */
+                margin: 0.2rem auto;
+                /* very small margin */
             }
 
             .about-text {
-                padding: 0 0.5rem;
-                /* tighter text margins */
+                padding: 0 0.3rem;
+                /* reduced side padding */
             }
 
-            #about {
-                gap: 1.2rem;
-                /* reduce space between image and text */
+            .about-text h1 {
+                margin-bottom: 0.8rem;
+            }
+
+            .about-text p {
+                margin-bottom: 1rem;
             }
         }
 
