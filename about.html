@@ -4,6 +4,8 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#f2f3f5">
+    <meta name="apple-mobile-web-app-capable" content="yes">
     <title>About | Vedant Dhamale</title>
 
     <!-- Modern Minimal Fonts -->
@@ -29,7 +31,6 @@
             height: 100%;
             width: 100%;
             overflow-x: hidden;
-            /* ✅ prevents horizontal scroll crash */
         }
 
         /* ===== BACKGROUND ===== */
@@ -40,7 +41,6 @@
             background-size: 200% 200%;
             animation: smoothShift 20s ease-in-out infinite alternate;
             overflow-x: hidden;
-            /* ✅ stops overscroll */
         }
 
         @keyframes smoothShift {
@@ -231,6 +231,15 @@
 
             .about-text p {
                 font-size: 0.95rem;
+            }
+        }
+
+        /* ===== SAFARI / iOS FIX ===== */
+        @supports (-webkit-touch-callout: none) {
+            .background {
+                animation: none !important;
+                background: linear-gradient(135deg, #f2f3f5 0%, #e8ebf0 50%, #f9fafc 100%);
+                background-size: cover !important;
             }
         }
     </style>
