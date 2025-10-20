@@ -4,64 +4,140 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:200,400|Arapey" rel="stylesheet">
-    <link rel="stylesheet" type="text/css" href="css/demo1.css" />
     <title>My Portfolio</title>
+
+    <!-- Fonts -->
+    <link
+        href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&family=Playfair+Display:wght@600&display=swap"
+        rel="stylesheet">
+
+    <!-- Stylesheets -->
+    <link rel="stylesheet" type="text/css" href="css/demo1.css" />
     <link rel="stylesheet" href="./css/style2.css" />
     <link rel="stylesheet" href="./css/mediaqueries.css" />
+
     <style>
-        .background {
-            width: 100%;
-            height: 100vh;
+        body {
+            margin: 0;
+            font-family: 'Poppins', sans-serif;
             background-image: url('./assets/bg-image.png');
             background-size: cover;
             background-repeat: no-repeat;
+            background-attachment: fixed;
             background-position: center center;
+            color: #fff;
+            overflow-x: hidden;
         }
 
-        /* Decrease space between "Browse My Recent" and Project title */
         .section__text__p1 {
             font-size: 1.2rem;
             margin-bottom: 0.5rem;
-            /* Reduced the bottom margin */
             text-align: center;
+            font-weight: 500;
+            color: #dcdcdc;
+            letter-spacing: 1px;
         }
 
         .title {
-            font-size: 2.5rem;
+            font-family: 'Playfair Display', serif;
+            font-size: 2.8rem;
             margin-top: 0.5rem;
-            /* Reduced the top margin */
             text-align: center;
+            color: #fff;
+            text-shadow: 0 2px 8px rgba(0, 0, 0, 0.4);
         }
 
-        .experience-details-container {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
-            gap: 1rem;
-            /* Reduced gap between project cards */
-            padding: 1rem;
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1.8rem;
+            padding: 2rem 3rem;
+            justify-items: center;
         }
 
         .details-container {
-            width: 30%;
-            margin: 0.5rem;
-            /* Reduced margin */
-            padding: 1rem;
-            background-color: #f5f5f5;
-            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            width: 100%;
+            padding: 1.5rem;
+            background: rgba(35, 40, 55, 0.6);
+            border-radius: 16px;
+            backdrop-filter: blur(14px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.25);
+            transition: transform 0.35s ease, box-shadow 0.35s ease, background 0.35s ease;
+            opacity: 0;
+            transform: translateY(40px);
+        }
+
+        .details-container.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .details-container:hover {
+            transform: translateY(-10px);
+            background: rgba(45, 50, 70, 0.7);
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.4);
         }
 
         .project-img {
             max-width: 100%;
             height: auto;
+            border-radius: 12px;
+            transition: transform 0.4s ease;
         }
 
-        /* Responsive adjustments */
-        @media screen and (max-width: 768px) {
-            .details-container {
-                width: 90%;
-                /* Make project containers full width on smaller screens */
+        .details-container:hover .project-img {
+            transform: scale(1.03);
+        }
+
+        h2.project-title {
+            font-size: 1.3rem;
+            color: #f0f0f0;
+            text-align: center;
+            margin-top: 0.9rem;
+            letter-spacing: 0.5px;
+            text-shadow: 0 1px 5px rgba(0, 0, 0, 0.6);
+        }
+
+        .btn-container {
+            display: flex;
+            justify-content: center;
+            margin-top: 0.7rem;
+        }
+
+        .btn {
+            padding: 0.6rem 1.2rem;
+            border: 1.5px solid rgba(255, 255, 255, 0.6);
+            background: transparent;
+            color: #eaeaea;
+            border-radius: 6px;
+            cursor: pointer;
+            font-weight: 400;
+            letter-spacing: 0.5px;
+            transition: all 0.3s ease;
+        }
+
+        .btn:hover {
+            border-color: #00bcd4;
+            color: #00bcd4;
+            box-shadow: 0 0 10px rgba(0, 188, 212, 0.4);
+        }
+
+        @media screen and (max-width: 992px) {
+            .projects-grid {
+                grid-template-columns: repeat(2, 1fr);
+                padding: 2rem;
+            }
+        }
+
+        @media screen and (max-width: 600px) {
+            .projects-grid {
+                grid-template-columns: 1fr;
+                padding: 1.5rem;
+            }
+
+            .title {
+                font-size: 2rem;
             }
         }
     </style>
@@ -70,10 +146,10 @@
 <body class="demo-3">
 
     <div class="background">
-
         <main class="main main--demo-3">
-
             <div class="content content--demo-3">
+
+                <!-- Hamburger -->
                 <div class="hamburger hamburger--demo-3 js-hover">
                     <div class="hamburger__line hamburger__line--01">
                         <div class="hamburger__line-in hamburger__line-in--01"></div>
@@ -91,92 +167,109 @@
                         <div class="hamburger__line-in hamburger__line-in--cross02"></div>
                     </div>
                 </div>
-                <br><br>
-                <br>
-                <!-- <br> -->
 
                 <section id="projects">
-                    <p class="section__text__p1" style="color: rgb(17, 17, 17);"> <b>Browse My Recent</b></p>
-                    <h1 class="title" style="color: white;">Projects</h1>
-                    <div class="experience-details-container">
-                        <div class="about-containers">
-                            <div class="details-container color-container">
-                                <div class="article-container">
-                                    <img src="./assets/images/project-1.jpg" alt="Project 1" class="project-img" />
-                                </div>
-                                <h2 class="experience-sub-title project-title">Project One</h2>
-                                <div class="btn-container">
-                                    <button class="btn btn-color-2 project-btn"
-                                        onclick="location.href='https://github.com/'">
-                                        Github
-                                    </button>
-                                </div>
+                    <p class="section__text__p1"><b>Browse My Recent</b></p>
+                    <h1 class="title">Projects</h1>
+
+                    <div class="projects-grid">
+
+                        <!-- 1️⃣ Weapon Detection -->
+                        <div class="details-container">
+                            <div class="article-container">
+                                <img src="./assets/images/WDS.png" alt="Weapon Detection System" class="project-img" />
                             </div>
-                            <div class="details-container color-container">
-                                <div class="article-container">
-                                    <img src="./assets/images/project-2.png" alt="Project 2" class="project-img" />
-                                </div>
-                                <h2 class="experience-sub-title project-title">Project Two</h2>
-                                <div class="btn-container">
-                                    <button class="btn btn-color-2 project-btn"
-                                        onclick="location.href='https://github.com/'">
-                                        Github
-                                    </button>
-                                </div>
-                            </div>
-                            <div class="details-container color-container">
-                                <div class="article-container">
-                                    <img src="./assets/images/project-3.jpg" alt="Project 3" class="project-img" />
-                                </div>
-                                <h2 class="experience-sub-title project-title">Project Three</h2>
-                                <div class="btn-container">
-                                    <button class="btn btn-color-2 project-btn"
-                                        onclick="location.href='https://github.com/'">
-                                        Github
-                                    </button>
-                                </div>
+                            <h2 class="project-title">Weapon Detection System</h2>
+                            <div class="btn-container">
+                                <button class="btn"
+                                    onclick="location.href='https://github.com/VedantDhamale/Weapon_Detection_System'">View
+                                    Code</button>
                             </div>
                         </div>
-                    </div>
-                    <div class="experience-details-container">
-                        <div class="about-containers">
-                            <div class="details-container color-container">
-                                <div class="article-container">
-                                    <img src="./assets/images/project-1.jpg" alt="Project 1" class="project-img" />
-                                </div>
-                                <h2 class="experience-sub-title project-title">Project One</h2>
-                                <div class="btn-container">
-                                    <button class="btn btn-color-2 project-btn"
-                                        onclick="location.href='https://github.com/'">
-                                        Github
-                                    </button>
-                                </div>
+
+                        <!-- 2️⃣ Craters & Boulders Detection -->
+                        <div class="details-container">
+                            <div class="article-container">
+                                <img src="https://github.com/VedantDhamale/Craters_Boulders_Detection_Project/raw/main/Result.png"
+                                    alt="Craters & Boulders Detection Project Result" class="project-img" />
                             </div>
-                            <div class="details-container color-container">
-                                <div class="article-container">
-                                    <img src="./assets/images/project-2.png" alt="Project 2" class="project-img" />
-                                </div>
-                                <h2 class="experience-sub-title project-title">Project Two</h2>
-                                <div class="btn-container">
-                                    <button class="btn btn-color-2 project-btn"
-                                        onclick="location.href='https://github.com/'">
-                                        Github
-                                    </button>
-                                </div>
-                            </div>
-                            <div class="details-container color-container">
-                                <div class="article-container">
-                                    <img src="./assets/images/project-3.jpg" alt="Project 3" class="project-img" />
-                                </div>
-                                <h2 class="experience-sub-title project-title">Project Three</h2>
-                                <div class="btn-container">
-                                    <button class="btn btn-color-2 project-btn"
-                                        onclick="location.href='https://github.com/'">
-                                        Github
-                                    </button>
-                                </div>
+                            <h2 class="project-title">Craters & Boulders Detection</h2>
+                            <div class="btn-container">
+                                <button class="btn"
+                                    onclick="location.href='https://github.com/VedantDhamale/Craters_Boulders_Detection_Project'">View
+                                    Code</button>
                             </div>
                         </div>
+
+                        <!-- 3️⃣ EY Unicorn Business Analysis -->
+                        <div class="details-container">
+                            <div class="article-container">
+                                <img src="./assets/images/EY.png" alt="EY Unicorn Business Analysis"
+                                    class="project-img" />
+                            </div>
+                            <h2 class="project-title">EY Unicorn Business Analysis</h2>
+                            <div class="btn-container">
+                                <button class="btn"
+                                    onclick="location.href='https://github.com/VedantDhamale/PowerBI_Comprehensive_Unicorn_businesses_analysis-'">View
+                                    Code</button>
+                            </div>
+                        </div>
+
+                        <!-- 4️⃣ Excelerate Data Dashboard -->
+                        <div class="details-container">
+                            <div class="article-container">
+                                <img src="./assets/images/excelerate.png" alt="Excelerate Data Dashboard"
+                                    class="project-img" />
+                            </div>
+                            <h2 class="project-title">Excelerate Data Dashboard</h2>
+                            <div class="btn-container">
+                                <button class="btn"
+                                    onclick="location.href='https://github.com/VedantDhamale/Excelerate_Internship_Dashboard-'">View
+                                    Code</button>
+                            </div>
+                        </div>
+
+                        <!-- 5️⃣ Telecom Churn Analysis -->
+                        <div class="details-container">
+                            <div class="article-container">
+                                <img src="./assets/images/tele.jpg" alt="Telecom Churn Analysis" class="project-img" />
+                            </div>
+                            <h2 class="project-title">Telecom Churn Analysis</h2>
+                            <div class="btn-container">
+                                <button class="btn"
+                                    onclick="location.href='https://github.com/VedantDhamale/Vedant_Dhamale_Edunet_Project'">View
+                                    Code</button>
+                            </div>
+                        </div>
+
+                        <!-- 6️⃣ Earthquake Damage Prediction -->
+                        <div class="details-container">
+                            <div class="article-container">
+                                <img src="./assets/images/earthquake.jpg" alt="Earthquake Damage Prediction"
+                                    class="project-img" />
+                            </div>
+                            <h2 class="project-title">Earthquake Damage Prediction</h2>
+                            <div class="btn-container">
+                                <button class="btn"
+                                    onclick="location.href='https://github.com/VedantDhamale/Earthquake-Damage-Prediction-Mini-Project-Data-science'">View
+                                    Code</button>
+                            </div>
+                        </div>
+
+                        <!-- 7️⃣ Skin Cancer Prediction -->
+                        <div class="details-container">
+                            <div class="article-container">
+                                <img src="https://github.com/VedantDhamale/Skin-Cancer-Prediction-Using-CNN/raw/main/Accuracy_Of_Models.png"
+                                    alt="Skin Cancer Prediction Using CNN" class="project-img" />
+                            </div>
+                            <h2 class="project-title">Skin Cancer Prediction</h2>
+                            <div class="btn-container">
+                                <button class="btn"
+                                    onclick="location.href='https://github.com/VedantDhamale/Skin-Cancer-Prediction-Using-CNN'">View
+                                    Code</button>
+                            </div>
+                        </div>
+
                     </div>
                 </section>
 
@@ -188,6 +281,7 @@
                         <a class="global-menu__item global-menu__item--demo-3" href="./project.html">Projects</a>
                     </div>
                 </div>
+
                 <svg class="shape-overlays" viewBox="0 0 100 100" preserveAspectRatio="none">
                     <path class="shape-overlays__path"></path>
                     <path class="shape-overlays__path"></path>
@@ -195,13 +289,26 @@
                 </svg>
 
             </div>
-
         </main>
-        <script src="js/demo.js"></script>
-        <script src="js/easings.js"></script>
-        <script src="js/demo3.js"></script>
-        <script src="./js/script2.js"></script>
     </div>
+
+    <script src="js/demo.js"></script>
+    <script src="js/easings.js"></script>
+    <script src="js/demo3.js"></script>
+    <script src="./js/script2.js"></script>
+
+    <script>
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, { threshold: 0.2 });
+
+        document.querySelectorAll('.details-container').forEach(el => observer.observe(el));
+    </script>
+
 </body>
 
 </html>
