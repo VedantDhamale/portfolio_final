@@ -132,6 +132,115 @@
 			letter-spacing: 0.4px;
 			font-weight: 500;
 		}
+
+		/* ===== POST-LOAD ENTRANCE ANIMATIONS ===== */
+
+		/* Start hidden: shifted down slightly and transparent */
+		.page-enter {
+			opacity: 0;
+			transform: translateY(18px) scale(0.995);
+			transition: opacity 650ms cubic-bezier(.22, .9, .46, 1), transform 650ms cubic-bezier(.22, .9, .46, 1);
+		}
+
+		/* When page loaded, elements with this class will fade/slide into place */
+		.page-loaded .page-enter {
+			opacity: 1;
+			transform: translateY(0) scale(1);
+		}
+
+		/* Slight stagger helpers */
+		.stagger-1 {
+			transition-delay: 0.08s;
+		}
+
+		.stagger-2 {
+			transition-delay: 0.16s;
+		}
+
+		.stagger-3 {
+			transition-delay: 0.24s;
+		}
+
+		/* Subtle hero image reveal */
+		.section__pic-container {
+			opacity: 0;
+			transform: scale(0.98) translateY(8px);
+			transition: opacity 700ms ease, transform 700ms ease;
+		}
+
+		.page-loaded .section__pic-container {
+			opacity: 1;
+			transform: scale(1) translateY(0);
+		}
+
+		/* Make sure the main content isn't interactable until revealed */
+		.page-loaded .loader-interactive-blocked {
+			pointer-events: auto;
+		}
+
+		/* ===== HOVER ANIMATIONS & CURSOR FIX ===== */
+
+		/* Prevent text from showing the text-selection I-beam cursor on hover for non-interactive text.
+		   Use !important to override other styles that might set cursor on nested elements. */
+		#profile,
+		#profile *,
+		.section__text,
+		.section__text *,
+		.intro-desc,
+		.connect-text,
+		.title,
+		.section__text__p1,
+		.section__text__p2 {
+			cursor: default !important;
+		}
+
+		/* Keep interactive elements showing pointer */
+		a.global-menu__item,
+		.global-menu__item,
+		#socials-container .icon {
+			cursor: pointer !important;
+		}
+
+		/* Title hover — subtle lift + color */
+		.title {
+			display: inline-block;
+			/* disable hover animation for title */
+			transition: none !important;
+		}
+
+		.title:hover {
+			/* no animation on hover */
+			transform: none !important;
+			letter-spacing: normal !important;
+			text-shadow: none !important;
+		}
+
+		/* Small header and connect text hover */
+		/* Disable hover animations for paragraph/header text */
+		.section__text__p1,
+		.section__text__p2,
+		.connect-text {
+			transition: none !important;
+		}
+
+		.section__text__p1:hover,
+		.section__text__p2:hover,
+		.connect-text:hover {
+			transform: none !important;
+			opacity: 1 !important;
+		}
+
+		/* Improved hover on socials icons: lift, scale, slight rotation and soft shadow */
+		#socials-container .icon {
+			transition: transform 220ms cubic-bezier(.22, .9, .46, 1), box-shadow 220ms ease, opacity 180ms ease;
+			display: inline-block;
+		}
+
+		#socials-container .icon:hover {
+			transform: translateY(-6px) scale(1.08) rotate(-6deg);
+			box-shadow: 0 12px 30px rgba(33, 54, 106, 0.12);
+			opacity: 0.98;
+		}
 	</style>
 </head>
 
@@ -169,10 +278,10 @@
 
 				<!-- ===== PROFILE SECTION ===== -->
 				<section id="profile">
-					<div class="section__pic-container">
+					<div class="section__pic-container page-enter stagger-1">
 						<img src="./assets/ab.png" alt="Vedant Dhamale profile picture" />
 					</div>
-					<div class="section__text" style="margin-top: 4rem;">
+					<div class="section__text stagger-2" style="margin-top: 4rem;">
 						<p class="section__text__p1">Hello, I'm</p>
 						<h1 class="title">Vedant Dhamale</h1>
 						<p class="section__text__p2" style="color: #1e2a55;">Artifical Intelligence & Data Science
@@ -186,9 +295,9 @@
 							and building models that make a difference.
 						</p> -->
 
-						<p class="connect-text">Connect with me:</p>
+						<p class="connect-text stagger-3">Connect with me:</p>
 
-						<div id="socials-container">
+						<div id="socials-container" class="page-enter stagger-3">
 							<img src="./assets/linkedin.png" alt="My LinkedIn profile" class="icon"
 								onclick="window.open('https://www.linkedin.com/in/vedant-dhamale-0ab58b286', '_blank')" />
 							<img src="./assets/github.png" alt="My GitHub profile" class="icon"
@@ -225,11 +334,16 @@
 	<script>
 		window.addEventListener("load", () => {
 			const loader = document.querySelector(".loader");
+			// fade out then remove loader, then mark page as loaded to trigger entrance animations
 			setTimeout(() => {
 				loader.style.animation = "fadeOutLoader 0.8s ease forwards";
 			}, 1700);
 			setTimeout(() => {
 				loader.style.display = "none";
+				// add class to body to start entrance animations
+				document.body.classList.add('page-loaded');
+				// ensure interactive elements are available after reveal
+				document.body.classList.remove('loading');
 			}, 2500);
 		});
 	</script>
